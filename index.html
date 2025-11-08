@@ -17,8 +17,10 @@
     <header class="main-header">
         <nav class="navbar">
             <a href="index.html" class="navbar-logo">
-                <img src="assets/images/common/logo.svg" alt="Logo Parceria Premiada">
+                <img src="assets/images/common/logo.svg" alt="Logo Parceria Premiada" class="logo-desktop">
+                <img src="assets/images/common/logomobile.svg" alt="Logo Parceria Premiada" class="logo-mobile">
             </a>
+            
             <div class="navbar-links">
                 <img src="assets/images/common/nav-separator.svg" alt="Separador" class="nav-separator">
                 <a href="index.html">Início</a>
@@ -29,32 +31,57 @@
                 <img src="assets/images/common/nav-separator.svg" alt="Separador" class="nav-separator">
                 <a href="login.html">Login</a>
             </div>
+
+            <button class="mobile-nav-toggle" aria-label="Abrir menu">
+                <img src="assets/images/common/toggle.svg" alt="Abrir menu" class="icon-toggle">
+            </button>
+            
         </nav>
     </header>
-
     <main>
         <section id="hero-section">
             <div class="carousel-container">
-                <a href="#" class="hero-button">
-                    <img src="assets/images/common/button-cta.svg" alt="Resgate já">
-                    <span>Resgate já</span>
-                </a>
+                
                 <div class="carousel-slides">
+
                     <div class="carousel-slide">
-                        <img src="assets/images/hero/banner-participate.svg" alt="Banner principal da campanha">
+                        <img src="assets/images/hero/banner-redeem-harvest.svg" alt="Outro banner da campanha" class="banner-desktop">
+                        <img src="assets/images/hero/banner-mobile-resgate.svg" alt="Outro banner da campanha" class="banner-mobile">
+                        
+                        <a href="#" class="hero-button">
+                            <img src="assets/images/common/button-cta.svg" alt="Entenda e faça parte" class="button-desktop">
+                            <img src="assets/images/common/button-mobile-cta.svg" alt="Entenda e faça parte" class="button-mobile">
+                            <span>Resgate já</span>
+                        </a>
                     </div>
+                    
                     <div class="carousel-slide">
-                        <img src="assets/images/hero/banner-redeem-harvest.svg" alt="Outro banner da campanha">
+                        <img src="assets/images/hero/banner-participate.svg" alt="Banner principal da campanha" class="banner-desktop">
+                        <img src="assets/images/hero/banner-mobile-entenda.svg" alt="Banner principal da campanha" class="banner-mobile">
+                        
+                        <a href="#" class="hero-button">
+                            <img src="assets/images/common/button-cta.svg" alt="Resgate já" class="button-desktop">
+                            <img src="assets/images/common/button-mobile-cta.svg" alt="Resgate já" class="button-mobile">
+                            <span>Entenda e faça parte</span>
+                        </a>
                     </div>
-                    <div class="carousel-slide">
-                        <img src="assets/images/hero/banner-know-program.svg" alt="Outro banner da campanha">
+                    
+                    <div class="carousel-slide"> 
+                        <img src="assets/images/hero/banner-know-program.svg" alt="Outro banner da campanha" class="banner-desktop">
+                        <img src="assets/images/hero/banner-mobile-video.svg" alt="Outro banner da campanha" class="banner-mobile">
+                        
+                        <a href="#" class="hero-button">
+                            <img src="assets/images/common/button-cta.svg" alt="Assista o vídeo" class="button-desktop">
+                            <img src="assets/images/common/button-mobile-cta.svg" alt="Assista o vídeo" class="button-mobile">
+                            <span>Assista o vídeo</span>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="carousel-indicators">
             </div>
         </section>
-
+        
         <section id="introduction-section">
             <div class="intro-content">
                 <p class="intro-kicker">Parceria Premiada Bayer</p>
@@ -66,20 +93,33 @@
                 <p class="intro-description">
                     Nós incentivamos e bonificamos suas vendas, enquanto facilitamos sua rotina.
                 </p>
-                <a href="#" class="intro-button">
-                    <img src="assets/images/common/button-cta.svg" alt="Saiba como funciona">
+                
+                <a href="#" class="intro-button intro-button-desktop">
+                    <img src="assets/images/common/button-cta.svg" alt="Saiba como funciona" class="button-desktop">
                     <span>Saiba como funciona</span>
                 </a>
             </div>
+            
             <div class="intro-image">
-                <img src="assets/images/introduction/farmer-tablet.svg" alt="Produtor rural com um tablet no campo">
+                <img src="assets/images/introduction/farmer-tablet.svg" alt="Produtor rural com um tablet no campo" class="img-desktop">
+                <img src="assets/images/introduction/farmer-tablet-mobile.svg" alt="Produtor rural com um tablet no campo" class="img-mobile">
             </div>
-        </section>
 
+            <a href="#" class="intro-button intro-button-mobile">
+                <img src="assets/images/common/button-mobile-cta.svg" alt="Saiba como funciona" class="button-mobile">
+                <span>Saiba como funciona</span>
+            </a>
+        </section>
+        
         <section id="what-is-section">
             <h2 class="what-is-title">O que é?</h2>
-            <img class="what-is-lines" src="assets/images/what-is/decorative-lines.svg" alt="">
-            <img class="what-is-celular" src="assets/images/what-is/app-showcase.svg" alt="Demonstração do aplicativo do programa em um celular">
+            
+            <img class="what-is-lines img-desktop" src="assets/images/what-is/decorative-lines.svg" alt="">
+            <img class="what-is-lines img-mobile" src="assets/images/what-is/decorative-lines-mobile.svg" alt="">
+
+            <img class="what-is-celular img-desktop" src="assets/images/what-is/app-showcase.svg" alt="Demonstração do aplicativo do programa em um celular">
+            <img class="what-is-celular img-mobile" src="assets/images/what-is/app-showcase-mobile.svg" alt="Demonstração do aplicativo do programa em um celular">
+            
             <div class="what-is-description">
                 <p>
                 A Parceria Premiada Bayer é um programa de benefícios que premia a dedicação da equipe de vendas, e da melhor forma possível, <strong>em dinheiro!</strong>
@@ -88,7 +128,7 @@
                 </p>
             </div>
         </section>
-
+        
         <section id="step-by-step-section">
             <div class="step-item step-identification">
                 <img src="assets/images/steps/icon-identification.svg" alt="Ícone de Identificação" class="step-icon">
@@ -124,11 +164,13 @@
 
             <div class="step-by-step-buttons">
                 <a href="#" class="cta-button button-left">
-                    <img src="assets/images/common/button-cta.svg" alt="">
+                    <img src="assets/images/common/button-cta.svg" alt="Saiba mais CTV" class="button-desktop">
+                    <img src="assets/images/common/button-mobile-cta.svg" alt="Saiba mais CTV" class="button-mobile">
                     <span>Saiba mais CTV</span>
                 </a>
                 <a href="#" class="cta-button button-right">
-                    <img src="assets/images/common/button-cta.svg" alt="">
+                    <img src="assets/images/common/button-cta.svg" alt="Saiba mais Master" class="button-desktop">
+                    <img src="assets/images/common/button-mobile-cta.svg" alt="Saiba mais Master" class="button-mobile">
                     <span>Saiba mais Master</span>
                 </a>
             </div>
@@ -403,6 +445,22 @@
                 observer.observe(section);
             }
         });
+
+        // --- LÓGICA DO MENU MOBILE (ATUALIZADO 2.0) ---
+        const toggleButton = document.querySelector('.mobile-nav-toggle');
+        const header = document.querySelector('.main-header');
+        const body = document.querySelector('body');
+        const html = document.documentElement; // 1. Seleciona o <html>
+
+        if (toggleButton && header && body && html) { // 2. Verifica o <html>
+            toggleButton.addEventListener('click', () => {
+                // Adiciona ou remove a classe em TUDO
+                header.classList.toggle('menu-is-open');
+                body.classList.toggle('menu-is-open'); 
+                html.classList.toggle('menu-is-open'); // 3. Trava a rolagem no HTML também
+            });
+        }
+
     });
 </script>
     
