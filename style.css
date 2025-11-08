@@ -239,13 +239,14 @@ h1, h2, h3, h4, p {
 .intro-button-mobile,
 #what-is-section .img-mobile,
 .cta-button .button-mobile,
-#how-to-join-section .img-mobile, /* <-- ADICIONE ESTA LINHA */
+#how-to-join-section .img-mobile, 
 .horizontal-scroll-wrapper, 
 .drag-indicator,
-.join-bottom-image {
-   display: none;
+.join-bottom-image,
+.registered-app-image-mobile { /* <-- ADICIONE ESTA LINHA */
+    display: none;
 }
-
+/* Mostra elementos desktop no DESKTOP */
 /* Mostra elementos desktop no DESKTOP */
 .banner-desktop,
 .hero-button .button-desktop,
@@ -253,8 +254,9 @@ h1, h2, h3, h4, p {
 .intro-button-desktop,
 #what-is-section .img-desktop,
 .cta-button .button-desktop,
-#how-to-join-section .img-desktop { /* <-- ADICIONE ESTA LINHA */
-   display: block; 
+#how-to-join-section .img-desktop,
+.registered-app-image { /* <-- ADICIONE ESTA LINHA */
+    display: block; 
 }
 
 /* Garante que os botões do desktop sejam 'grid' */
@@ -1446,6 +1448,106 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
         height: 465px;
         object-fit: cover;
         object-position: top center;
+    }
+
+    /* =======================================
+        10.9. Already Registered Section Mobile
+       ======================================= */
+
+    #already-registered-section {
+        height: 792px; 
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Esconde a imagem do DESKTOP no mobile */
+    .registered-app-image.img-desktop {
+        display: none;
+    }
+    
+    /* Esconde as linhas decorativas do desktop */
+    .registered-decorative-lines {
+        display: none;
+    }
+
+    /* Posiciona o container de TEXTO */
+    .registered-content {
+        position: absolute; 
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        padding: 0;
+        transform: none !important; 
+        opacity: 1 !important; 
+        z-index: 3; 
+    }
+
+    /* ... (as regras para h2, h3, .highlight-bold, p que passei antes) ... */
+    .registered-content h2 {
+        position: absolute;
+        /* width: 314px; */  /* REMOVIDO */
+        height: auto; 
+        left: 24px;
+        top: 48px;
+        font-size: 28px;
+        font-weight: 300; 
+        font-style: italic;
+        color: var(--color-primary-dark-blue);
+        line-height: 1.2; 
+        margin-bottom: 0;
+    }
+    .registered-content h3 {
+        position: absolute;
+        width: 326px;
+        height: 48px; 
+        left: 24px;
+        top: 133px;
+        font-size: 16px;
+        font-weight: 400; 
+        font-style: normal; 
+        color: var(--color-primary-dark-blue);
+        line-height: 1.3;
+        margin-bottom: 0;
+    }
+    .registered-content .highlight-bold {
+        position: absolute;
+        width: 326px;
+        height: 72px; 
+        left: 24px;
+        top: 197px;
+        font-size: 16px;
+        font-weight: 700; 
+        line-height: 1.3; 
+        margin-bottom: 0;
+    }
+    .registered-content p:not(.highlight-bold) {
+        position: absolute;
+        width: 332px;
+        height: 120px; 
+        left: 24px;
+        top: 285px;
+        font-size: 16px;
+        font-weight: 400; 
+        line-height: 1.3;
+        color: var(--color-primary-dark-blue);
+    }
+
+
+    /* Posiciona a NOVA IMAGEM MOBILE (app-showcase-mobile-3) */
+    .registered-app-image-mobile.img-mobile {
+        display: block; /* Garante que ela apareça */
+        position: absolute;
+        width: 375px;
+        height: 392px;
+        left: 0px;
+        top: 441px;
+        z-index: 2; /* Imagem atrás do texto */
+        object-fit: cover; 
+        object-position: top center;
+        transform: none !important; 
+        opacity: 1 !important; 
     }
     
 } /* <-- Fim do @media query */
