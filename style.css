@@ -248,7 +248,7 @@ h1, h2, h3, h4, p {
 .registered-app-image-mobile,
 .back-to-top-button .img-mobile,
 .scams-button .button-mobilel,
-.ctv-steps-section-mobile { 
+#ctv-steps-section-mobile { 
     display: none;
 }
 /* Mostra elementos desktop no DESKTOP */
