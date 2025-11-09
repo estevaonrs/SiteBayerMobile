@@ -244,10 +244,9 @@ h1, h2, h3, h4, p {
 .drag-indicator,
 .join-bottom-image,
 .registered-app-image-mobile,
-.back-to-top-button .img-mobile { /* <-- ADICIONE ESTA LINHA */
+.back-to-top-button .img-mobile { 
     display: none;
 }
-/* Mostra elementos desktop no DESKTOP */
 /* Mostra elementos desktop no DESKTOP */
 .banner-desktop,
 .hero-button .button-desktop,
@@ -257,7 +256,7 @@ h1, h2, h3, h4, p {
 .cta-button .button-desktop,
 #how-to-join-section .img-desktop,
 .registered-app-image,
-.back-to-top-button .img-desktop { /* <-- ADICIONE ESTA LINHA */
+.back-to-top-button .img-desktop { 
     display: block; 
 }
 
@@ -780,1115 +779,1094 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
 
 @media (max-width: 768px) {
 
-    /* --- Trava a rolagem quando o menu está aberto --- */
-    html.menu-is-open,
-    body.menu-is-open {
-        overflow: hidden;
-    }
+   /* --- Trava a rolagem quando o menu está aberto --- */
+   html.menu-is-open,
+   body.menu-is-open {
+       overflow: hidden;
+   }
 
-    /* =======================================
-        10.1. Header e Navbar Mobile
-        ======================================= */
-    
-    .main-header {
-        height: 120px;
-        border-bottom: 1px solid #E5E5E5; 
-        position: relative; 
-        z-index: 999;
-    }
+   /* =======================================
+       10.1. Header e Navbar Mobile
+       ======================================= */
+   
+   .main-header {
+       height: 120px;
+       border-bottom: 1px solid #E5E5E5; 
+       position: relative; 
+       z-index: 999;
+   }
 
-    .navbar {
-        padding: 0 24px;
-        height: 100%;
-    }
+   .navbar {
+       padding: 0 24px;
+       height: 100%;
+   }
 
-    /* --- Controle de Visibilidade --- */
-    .navbar-logo .logo-desktop { display: none; }
-    .navbar-logo .logo-mobile {
-        display: block;
-        width: 85px;
-        height: 56px;
-    }
-    .mobile-nav-toggle {
-        display: block;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        padding: 0;
-        z-index: 1000; 
-    }
-    .mobile-nav-toggle .icon-toggle {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
+   /* --- Controle de Visibilidade --- */
+   .navbar-logo .logo-desktop { display: none; }
+   .navbar-logo .logo-mobile {
+       display: block;
+       width: 85px;
+       height: 56px;
+   }
+   .mobile-nav-toggle {
+       display: block;
+       background: transparent;
+       border: none;
+       cursor: pointer;
+       width: 24px;
+       height: 24px;
+       padding: 0;
+       z-index: 1000; 
+   }
+   .mobile-nav-toggle .icon-toggle {
+       display: block;
+       width: 100%;
+       height: 100%;
+   }
 
-    /* --- Estilos do Menu Mobile (Dropdown) --- */
-    .navbar-links {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        position: absolute;
-        top: 120px; 
-        left: 0;
-        
-        width: 100%; 
-        height: 100vh; 
-        background-color: var(--color-white);
+   /* --- Estilos do Menu Mobile (Dropdown) --- */
+   .navbar-links {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       position: absolute;
+       top: 120px; 
+       left: 0;
+       
+       width: 100%; 
+       height: 100vh; 
+       background-color: var(--color-white);
 
-        padding: 46px 0 0 16px; 
-        z-index: 998; 
-        
-        transform: none;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease-out, visibility 0s 0.3s;
-    }
+       padding: 46px 0 0 16px; 
+       z-index: 998; 
+       
+       transform: none;
+       opacity: 0;
+       visibility: hidden;
+       transition: opacity 0.3s ease-out, visibility 0s 0.3s;
+   }
 
-    .main-header.menu-is-open .navbar-links {
-        opacity: 1;
-        visibility: visible;
-        transition: opacity 0.3s ease-out, visibility 0s 0s;
-    }
+   .main-header.menu-is-open .navbar-links {
+       opacity: 1;
+       visibility: visible;
+       transition: opacity 0.3s ease-out, visibility 0s 0s;
+   }
 
-    .navbar-links .nav-separator { display: none; }
+   .navbar-links .nav-separator { display: none; }
 
-    .navbar-links a {
-        display: flex;
-        align-items: center;
-        height: 40px; 
-        margin-bottom: 8px; 
-        font-family: var(--font-primary);
-        color: var(--color-primary-dark-blue);
-        font-size: 16px;
-        font-weight: 400;
-        margin-right: 0; 
-        padding-bottom: 0;
-    }
-    
-    .navbar-links a[href="index.html"] {
-        display: none;
-    }
+   .navbar-links a {
+       display: flex;
+       align-items: center;
+       height: 40px; 
+       margin-bottom: 8px; 
+       font-family: var(--font-primary);
+       color: var(--color-primary-dark-blue);
+       font-size: 16px;
+       font-weight: 400;
+       margin-right: 0; 
+       padding-bottom: 0;
+   }
+   
+   .navbar-links a[href="index.html"] {
+       display: none;
+   }
 
-    .navbar-links a::before {
-        content: '';
-        display: block;
-        background-image: url('assets/images/common/nav-separator.svg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 10.45px;
-        height: 18px;
-        margin-right: 26.45px;
-    }
+   .navbar-links a::before {
+       content: '';
+       display: block;
+       background-image: url('assets/images/common/nav-separator.svg');
+       background-size: contain;
+       background-repeat: no-repeat;
+       background-position: center;
+       width: 10.45px;
+       height: 18px;
+       margin-right: 26.45px;
+   }
 
-    .navbar-links a::after { display: none; }
-
-
-    /* =======================================
-        10.2. Hero Section Mobile
-        ======================================= */
-
-    #hero-section {
-        height: auto; 
-    }
-
-    .carousel-container {
-        width: 100%;
-        height: 497px; 
-    }
-    
-    .carousel-slide .banner-desktop {
-        display: none;
-    }
-    
-    .carousel-slide .banner-mobile {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; 
-    }
-    
-    .hero-button {
-        width: 172px;
-        height: 36px;
-        top: auto; 
-        bottom: 22px; 
-        left: 50%;
-        transform: translateX(-50%); 
-    }
-    
-    .hero-button .button-desktop { display: none; }
-    .hero-button .button-mobile { 
-        display: block;
-        width: 100%; 
-        height: 100%;
-    }
-    
-    .hero-button span {
-        font-size: 14px; 
-    }
-
-    .carousel-indicators {
-        height: 41px;
-        width: 100%;
-        padding: 12px 0; 
-        gap: 8px; 
-    }
-
-    .dot {
-        width: 8px;
-        height: 8px;
-        border-width: 1px;
-    }
-    
-    /* =======================================
-        10.3. Introduction Section Mobile
-        ======================================= */
-    
-    #introduction-section {
-        height: 776px;
-        width: 100%;
-        padding: 0; /* REMOVIDO PADDING */
-        position: relative;
-        overflow: hidden; 
-    }
-
-    .intro-content {
-        top: 0;
-        position: relative; /* CORRIGIDO */
-        width: 100%;
-        margin: 0 auto; /* Centraliza o artboard */
-        padding: 20px 24px 0 24px; /* CORREÇÃO 5: Padding-top reduzido */
-        box-sizing: border-box;
-        height: auto;
-        transform: none !important; 
-        opacity: 1 !important; 
-    }
-
-    .intro-kicker {
-        font-size: 18px;
-        font-weight: 700;
-        font-style: italic;
-        margin-bottom: 0; 
-    }
-
-    .intro-headline {
-        font-size: 28px;
-        font-weight: 300;
-        line-height: 1.15;
-        margin-top: 16px;
-        margin-bottom: 0; 
-    }
-
-    .intro-description {
-        font-size: 16px;
-        font-weight: 700;
-        margin-top: 16px;
-        margin-bottom: 0; 
-    }
-
-    .intro-button-desktop {
-        display: none;
-    }
-
-    .intro-image {
-        position: absolute;
-        top: 278px;
-        left: 24px; /* CORREÇÃO 7: Removido left 24px */
-        right: 0; /* CORREÇÃO 7: Colado à direita */
-        width: 402.72px; /* Mantém a largura original para overflow */
-        height: 394px;
-        transform: none !important; 
-        opacity: 1 !important; 
-    }
-
-    .intro-image .img-desktop {
-        display: none;
-    }
-    .intro-image .img-mobile {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .intro-button-mobile {
-        display: grid;
-        width: 172px;
-        height: 36px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 40px; 
-        place-items: center; /* CORREÇÃO 6: Centraliza o texto */
-    }
-    
-    /* CORREÇÃO 6: Faz a imagem e o span se sobreporem */
-    .intro-button-mobile > * {
-        grid-area: 1 / 1;
-    }
-    
-    .intro-button-mobile .button-mobile {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .intro-button-mobile span {
-        font-size: 14px;
-        z-index: 2; /* Garante que o span fique por cima */
-    }
-    
-    /* =======================================
-        10.4. What Is Section Mobile
-        ======================================= */
-        
-    #what-is-section {
-        height: 405px;
-        width: 100%;
-        position: relative; 
-        overflow: hidden;
-    }
-    
-    /* Wrapper invisível para centralizar o conteúdo de 375px */
-    #what-is-section::before {
-        content: '';
-        display: block;
-        width: 100%;
-        max-width: 375px; /* Largura do artboard */
-        height: 100%;
-        position: absolute;
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-        z-index: 0;
-    }
-
-    #what-is-section .img-desktop {
-        display: none;
-    }
-    #what-is-section .img-mobile {
-        display: block;
-    }
-
-    /* Posições baseadas no artboard de 375px */
-    .what-is-title {
-        position: absolute;
-        top: 40px;
-        left: 24px;
-        width: 110px;
-        height: 33px; 
-        font-size: 28px;
-        font-weight: 700;
-        font-style: italic;
-        transform: none !important;
-        opacity: 1 !important;
-        z-index: 2; /* CORREÇÃO 4: z-index maior */
-    }
-
-    .what-is-lines.img-mobile { 
-        position: absolute;
-        top: 42px;
-        left: 150px;
-        width: 224.42px;
-        height: 30.01px;
-        transform: none !important;
-        opacity: 1 !important;
-        z-index: 2; /* CORREÇÃO 4: z-index maior */
-    }
-
-    .what-is-celular.img-mobile { 
-        position: absolute;
-        top: 121px;
-        left: 24px;
-        width: 154px;
-        height: 309px;
-        transform: none !important;
-        opacity: 1 !important;
-        z-index: 1; /* CORREÇÃO 4: z-index menor */
-    }
-
-    .what-is-description {
-        position: absolute;
-        top: 121px;
-        left: 197px;
-        width: 159px;
-        height: auto; 
-        transform: none !important;
-        opacity: 1 !important;
-        z-index: 2; /* CORREÇÃO 4: z-index maior */
-    }
-    
-    .what-is-description p {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.4; 
-    }
-    
-    .what-is-description span {
-         margin-top: 16px; 
-    }
-    
-    /* Centraliza os elementos fixos em telas maiores que 375px */
-    @media (min-width: 376px) {
-        .what-is-title,
-        .what-is-lines.img-mobile,
-        .what-is-celular.img-mobile,
-        .what-is-description {
-            left: calc(50% - 187.5px + 24px); 
-        }
-        .what-is-lines.img-mobile {
-            left: calc(50% - 187.5px + 150px);
-        }
-        .what-is-celular.img-mobile {
-            left: calc(50% - 187.5px + 24px);
-        }
-        .what-is-description {
-            left: calc(50% - 187.5px + 197px);
-        }
-    }
+   .navbar-links a::after { display: none; }
 
 
-    /* =======================================
-        10.5. Step-by-Step Section Mobile
-        ======================================= */
+   /* =======================================
+       10.2. Hero Section Mobile
+       ======================================= */
 
-    #step-by-step-section {
-        height: 1014px;
-        width: 100%;
-        position: relative;
-        z-index: 3; /* CORREÇÃO 4: z-index maior */
-    }
+   #hero-section {
+       height: auto; 
+   }
 
-    #step-by-step-section .step-item {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 210px; 
-        height: auto; 
-        transform: translateX(-50%) !important;
-        opacity: 1 !important;
-    }
+   .carousel-container {
+       width: 100%;
+       height: 497px; 
+   }
+   
+   .carousel-slide .banner-desktop {
+       display: none;
+   }
+   
+   .carousel-slide .banner-mobile {
+       display: block;
+       width: 100%;
+       height: 100%;
+       object-fit: cover; 
+   }
+   
+   .hero-button {
+       width: 172px;
+       height: 36px;
+       top: auto; 
+       bottom: 22px; 
+       left: 50%;
+       transform: translateX(-50%); 
+   }
+   
+   .hero-button .button-desktop { display: none; }
+   .hero-button .button-mobile { 
+       display: block;
+       width: 100%; 
+       height: 100%;
+   }
+   
+   .hero-button span {
+       font-size: 14px; 
+   }
 
-    .step-identification { top: -34.66px; }
-    .step-participation { top: 185.92px; }
-    .step-validation { top: 437px; }
-    .step-payment { top: 659px; }
+   .carousel-indicators {
+       height: 41px;
+       width: 100%;
+       padding: 12px 0; 
+       gap: 8px; 
+   }
 
-    #step-by-step-section .step-icon {
-        position: static;
-        width: 110px; 
-        height: 110px; 
-        margin: 0 auto; 
-        transform: none;
-    }
+   .dot {
+       width: 8px;
+       height: 8px;
+       border-width: 1px;
+   }
+   
+   /* =======================================
+       10.3. Introduction Section Mobile
+       ======================================= */
+   
+   #introduction-section {
+       height: 776px;
+       width: 100%;
+       padding: 0; /* REMOVIDO PADDING */
+       position: relative;
+       overflow: hidden; 
+   }
 
-    #step-by-step-section .step-text {
-        position: static;
-        width: 100%;
-        height: auto;
-        padding: 0;
-        margin-top: 16px; 
-    }
+   .intro-content {
+       top: 0;
+       position: relative; /* CORRIGIDO */
+       width: 100%;
+       margin: 0 auto; /* Centraliza o artboard */
+       padding: 20px 24px 0 24px; /* CORREÇÃO 5: Padding-top reduzido */
+       box-sizing: border-box;
+       height: auto;
+       transform: none !important; 
+       opacity: 1 !important; 
+   }
 
-    #step-by-step-section .step-text h3 {
-        font-size: 18px;
-        font-weight: 700;
-        font-style: italic; 
-    }
-    
-    .step-participation .step-text h3,
-    .step-validation .step-text h3,
-    .step-payment .step-text h3 {
-        font-style: normal;
-    }
+   .intro-kicker {
+       font-size: 18px;
+       font-weight: 700;
+       font-style: italic;
+       margin-bottom: 0; 
+   }
 
-    #step-by-step-section .step-text p {
-        font-size: 16px;
-        font-weight: 400;
-        font-style: normal;
-    }
+   .intro-headline {
+       font-size: 28px;
+       font-weight: 300;
+       line-height: 1.15;
+       margin-top: 16px;
+       margin-bottom: 0; 
+   }
 
-    .step-by-step-buttons {
-        position: absolute;
-        width: 172px;
-        height: auto;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 886px;
-    }
-    
-    #step-by-step-section .cta-button {
-        position: static;
-        width: 100%;
-        height: 36px;
-        margin: 0; 
-    }
+   .intro-description {
+       font-size: 16px;
+       font-weight: 700;
+       margin-top: 16px;
+       margin-bottom: 0; 
+   }
 
-    #step-by-step-section .button-right {
-        margin-top: 16px;
-    }
+   .intro-button-desktop {
+       display: none;
+   }
 
-    #step-by-step-section .button-desktop { display: none; }
-    #step-by-step-section .button-mobile {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-    
-    #step-by-step-section .cta-button span {
-        font-size: 14px;
-    }
-    
-    /* =======================================
-        10.6. How To Join (Desktop) - ESCONDIDO
-        ======================================= */
-    
-    #how-to-join-section {
-        display: none;
-    }
+   .intro-image {
+       position: absolute;
+       top: 278px;
+       left: 24px; /* CORREÇÃO 7: Removido left 24px */
+       right: 0; /* CORREÇÃO 7: Colado à direita */
+       width: 402.72px; /* Mantém a largura original para overflow */
+       height: 394px;
+       transform: none !important; 
+       opacity: 1 !important; 
+   }
 
-    /* =======================================
-        10.7. Registration Steps (Desktop) - ESCONDIDO
-        ======================================= */
-    
-    #registration-steps-section {
-        display: none;
-    }
-    
-    /* ==========================================================
-       10.8. NOVA SEÇÃO HÍBRIDA (MOBILE) - MODO IMAGEM (SVG)
-       ========================================================== */
-    
-    #mobile-join-steps-section {
-        display: block;
-        width: 100%;
-        height: auto; 
-        background-color: var(--color-background-light-blue);
-        position: relative;
-        overflow: hidden;
-        padding-bottom: 0; 
-    }
-    
-    .mobile-join-content {
-        position: relative;
-        width: 100%;
-        height: auto; 
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* Wrapper de texto centralizado */
-    .mobile-join-text-wrapper {
-        width: 100%;
-        max-width: 375px; 
-        margin: 0 auto; 
-        padding: 0 24px; 
-        box-sizing: border-box;
-    }
+   .intro-image .img-desktop {
+       display: none;
+   }
+   .intro-image .img-mobile {
+       display: block;
+       width: 100%;
+       height: 100%;
+   }
+   
+   .intro-button-mobile {
+       display: grid;
+       width: 172px;
+       height: 36px;
+       position: absolute;
+       left: 50%;
+       transform: translateX(-50%);
+       bottom: 40px; 
+       place-items: center; /* CORREÇÃO 6: Centraliza o texto */
+   }
+   
+   /* CORREÇÃO 6: Faz a imagem e o span se sobreporem */
+   .intro-button-mobile > * {
+       grid-area: 1 / 1;
+   }
+   
+   .intro-button-mobile .button-mobile {
+       display: block;
+       width: 100%;
+       height: 100%;
+   }
+   
+   .intro-button-mobile span {
+       font-size: 14px;
+       z-index: 2; /* Garante que o span fique por cima */
+   }
+   
+   /* =======================================
+       10.4. What Is Section Mobile
+       ======================================= */
+       
+   #what-is-section {
+       height: 405px;
+       width: 100%;
+       position: relative; 
+       overflow: hidden;
+   }
+   
+   /* Wrapper invisível para centralizar o conteúdo de 375px */
+   #what-is-section::before {
+       content: '';
+       display: block;
+       width: 100%;
+       max-width: 375px; /* Largura do artboard */
+       height: 100%;
+       position: absolute;
+       left: 50%;
+       top: 0;
+       transform: translateX(-50%);
+       z-index: 0;
+   }
 
-    /* --- Título (Como fazer parte?) --- */
-    .mobile-join-title-group {
-        position: relative; 
-        width: 100%;
-        max-width: 375px; 
-        margin: 0 auto; 
-        padding-top: 48px;
-        padding-left: 24px;
-        padding-right: 24px;
-        box-sizing: border-box;
-        height: 81px; 
-    }
+   #what-is-section .img-desktop {
+       display: none;
+   }
+   #what-is-section .img-mobile {
+       display: block;
+   }
 
-    .mobile-join-title-group h2 {
-        position: absolute;
-        top: 48px;
-        left: 24px;
-        white-space: nowrap;
-        height: 33px;
-        font-size: 28px;
-        font-weight: 700;
-        font-style: italic;
-        color: var(--color-primary-dark-blue);
-    }
-    
-    .mobile-join-title-lines {
-        position: absolute;
-        top: 52px; 
-        left: 267px;
-        width: 107.3px;
-        height: 30.01px;
-    }
-    
-    /* --- Subtítulo (Você é parte fundamental...) --- */
-    #mobile-join-steps-section h3 {
-        position: relative; 
-        width: 100%;
-        max-width: 375px; 
-        margin: 48px auto 0 auto; 
-        padding: 0 24px; 
-        box-sizing: border-box;
-        left: auto;
-        top: auto;
-        font-size: 28px;
-        font-weight: 300;
-        font-style: italic;
-        line-height: 1.2;
-        color: var(--color-primary-dark-blue);
-    }
-    
-    /* --- Parágrafo (Para se cadastrar...) --- */
-    #mobile-join-steps-section p {
-        position: relative; 
-        width: 100%;
-        max-width: 375px; 
-        margin: 16px auto 0 auto; 
-        padding: 0 24px; 
-        box-sizing: border-box;
-        left: auto;
-        top: auto;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.4;
-        color: var(--color-primary-dark-blue);
-    }
+   /* Posições baseadas no artboard de 375px */
+   .what-is-title {
+       position: absolute;
+       top: 40px;
+       left: 24px;
+       width: 110px;
+       height: 33px; 
+       font-size: 28px;
+       font-weight: 700;
+       font-style: italic;
+       transform: none !important;
+       opacity: 1 !important;
+       z-index: 2; /* CORREÇÃO 4: z-index maior */
+   }
 
-    /* --- LIMPA QUALQUER REGRA ANTIGA DE TEXTO --- */
-    .timeline-blue-bar,
-    .timeline-number,
-    .timeline-content,
-    .timeline-white-bar,
-    .steps-timeline-container {
-        display: none;
-    }
+   .what-is-lines.img-mobile { 
+       position: absolute;
+       top: 42px;
+       left: 150px;
+       width: 224.42px;
+       height: 30.01px;
+       transform: none !important;
+       opacity: 1 !important;
+       z-index: 2; /* CORREÇÃO 4: z-index maior */
+   }
 
-    /* --- Wrapper do Scroll (Coordenada Y: 358) --- */
-    .mobile-steps-scroll-wrapper {
-        position: relative;
-        margin-top: 40px; 
-        left: 0;
-        width: 100%;
-        overflow-x: auto;
-        white-space: nowrap; 
-        -webkit-overflow-scrolling: touch; 
-        scrollbar-width: none; 
-        -ms-overflow-style: none;
-        height: 116.07px; 
-    }
-    .mobile-steps-scroll-wrapper::-webkit-scrollbar { display: none; }
+   .what-is-celular.img-mobile { 
+       position: absolute;
+       top: 121px;
+       left: 24px;
+       width: 154px;
+       height: 309px;
+       transform: none !important;
+       opacity: 1 !important;
+       z-index: 1; /* CORREÇÃO 4: z-index menor */
+   }
 
-    /* --- Container "Artboard" (Coordenada X: 24) --- */
-    .steps-timeline-container-spec {
-        position: relative;
-        width: 1643px;
-        height: 116.07px;
-        margin-left: 24px; 
-        margin-right: 24px;
-    }
-    
-    /* --- Estilo base para todas as imagens SVG --- */
-    .timeline-img {
-        position: absolute;
-        max-width: none; 
-        margin: 0;
-        padding: 0;
-        display: block;
-    }
+   .what-is-description {
+       position: absolute;
+       top: 121px;
+       left: 197px;
+       width: 159px;
+       height: auto; 
+       transform: none !important;
+       opacity: 1 !important;
+       z-index: 2; /* CORREÇÃO 4: z-index maior */
+   }
+   
+   .what-is-description p {
+       font-size: 16px;
+       font-weight: 400;
+       line-height: 1.4; 
+   }
+   
+   .what-is-description span {
+       margin-top: 16px; 
+   }
+   
+   /* Centraliza os elementos fixos em telas maiores que 375px */
+   @media (min-width: 376px) {
+       .what-is-title,
+       .what-is-lines.img-mobile,
+       .what-is-celular.img-mobile,
+       .what-is-description {
+           left: calc(50% - 187.5px + 24px); 
+       }
+       .what-is-lines.img-mobile {
+           left: calc(50% - 187.5px + 150px);
+       }
+       .what-is-celular.img-mobile {
+           left: calc(50% - 187.5px + 24px);
+       }
+       .what-is-description {
+           left: calc(50% - 187.5px + 197px);
+       }
+   }
 
-    /* --- Posicionamento exato de cada SVG --- */
-    #svg-retangulo {
-        width: 1598.93px;
-        height: 94.35px;
-        left: 44.07px;  
-        top: 12.41px;   
-        z-index: 1;
-    }
-    #svg-n1 {
-        width: 49.04px;
-        height: 112.35px;
-        left: 0px;      
-        top: 1.86px;    
-        z-index: 3;
-    }
-    #svg-acesse {
-        width: 153px;
-        height: 20px;
-        left: 68px;     
-        top: 48px;      
-        z-index: 2;
-    }
-    #svg-n2 {
-        width: 79.45px;
-        height: 114.21px;
-        left: 256.97px; 
-        top: 0.62px;    
-        z-index: 3;
-    }
-    #svg-preencha {
-        width: 266.96px;
-        height: 65.34px;
-        left: 355.04px; 
-        top: 25px;      
-        z-index: 2;
-    }
-    #svg-n3 {
-        width: 78.83px;
-        height: 116.07px;
-        left: 633.74px; 
-        top: 0px;       
-        z-index: 3;
-    }
-    #svg-ctv {
-        width: 229.66px;
-        height: 63px;
-        left: 731.19px; 
-        top: 27px;      
-        z-index: 2;
-    }
-    #svg-master {
-        width: 275.59px;
-        height: 63px;
-        left: 978.85px; 
-        top: 27px;      
-        z-index: 2;
-    }
-    #svg-barmobile {
-        width: 14.76px;
-        height: 79.44px;
-        left: 1285.48px; 
-        top: 19.75px;    
-        z-index: 2;
-    }
-    #svg-atento {
-        width: 298px;
-        height: 26px;
-        left: 1319px; 
-        top: 47px;    
-        z-index: 2;
-    }
-    
-    /* --- Indicador de Arraste (Coordenada Y: 514) --- */
-    .mobile-drag-indicator {
-        position: relative; 
-        margin-top: 40px; 
-        width: 201.27px; 
-        height: 14px; 
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .mobile-drag-indicator span {
-        display: none;
-    }
-    
-    .mobile-drag-indicator img#svg-arraste {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
 
-    /* --- Imagem Inferior --- */
-    .mobile-join-bottom-image {
-        position: relative; 
-        margin-top: 40px; 
-        left: 0;
-        width: 100%; 
-        height: 465px;
-        object-fit: cover;
-        object-position: top center;
-    }
+   /* =======================================
+       10.5. Step-by-Step Section Mobile
+       ======================================= */
 
-    /* ==========================================================
+   #step-by-step-section {
+       height: 1014px;
+       width: 100%;
+       position: relative;
+       z-index: 3; /* CORREÇÃO 4: z-index maior */
+   }
+
+   #step-by-step-section .step-item {
+       position: absolute;
+       left: 50%;
+       transform: translateX(-50%);
+       width: 210px; 
+       height: auto; 
+       transform: translateX(-50%) !important;
+       opacity: 1 !important;
+   }
+
+   .step-identification { top: -34.66px; }
+   .step-participation { top: 185.92px; }
+   .step-validation { top: 437px; }
+   .step-payment { top: 659px; }
+
+   #step-by-step-section .step-icon {
+       position: static;
+       width: 110px; 
+       height: 110px; 
+       margin: 0 auto; 
+       transform: none;
+   }
+
+   #step-by-step-section .step-text {
+       position: static;
+       width: 100%;
+       height: auto;
+       padding: 0;
+       margin-top: 16px; 
+   }
+
+   #step-by-step-section .step-text h3 {
+       font-size: 18px;
+       font-weight: 700;
+       font-style: italic; 
+   }
+   
+   .step-participation .step-text h3,
+   .step-validation .step-text h3,
+   .step-payment .step-text h3 {
+       font-style: normal;
+   }
+
+   #step-by-step-section .step-text p {
+       font-size: 16px;
+       font-weight: 400;
+       font-style: normal;
+   }
+
+   .step-by-step-buttons {
+       position: absolute;
+       width: 172px;
+       height: auto;
+       left: 50%;
+       transform: translateX(-50%);
+       top: 886px;
+   }
+   
+   #step-by-step-section .cta-button {
+       position: static;
+       width: 100%;
+       height: 36px;
+       margin: 0; 
+   }
+
+   #step-by-step-section .button-right {
+       margin-top: 16px;
+   }
+
+   #step-by-step-section .button-desktop { display: none; }
+   #step-by-step-section .button-mobile {
+       display: block;
+       width: 100%;
+       height: 100%;
+   }
+   
+   #step-by-step-section .cta-button span {
+       font-size: 14px;
+   }
+   
+   /* =======================================
+       10.6. How To Join (Desktop) - ESCONDIDO
+       ======================================= */
+   
+   #how-to-join-section {
+       display: none;
+   }
+
+   /* =======================================
+       10.7. Registration Steps (Desktop) - ESCONDIDO
+       ======================================= */
+   
+   #registration-steps-section {
+       display: none;
+   }
+   
+   /* ==========================================================
+      10.8. NOVA SEÇÃO HÍBRIDA (MOBILE) - MODO IMAGEM (SVG)
+      ========================================================== */
+   
+   #mobile-join-steps-section {
+       display: block;
+       width: 100%;
+       height: auto; 
+       background-color: var(--color-background-light-blue);
+       position: relative;
+       overflow: hidden;
+       padding-bottom: 0; 
+   }
+   
+   .mobile-join-content {
+       position: relative;
+       width: 100%;
+       height: auto; 
+       display: flex;
+       flex-direction: column;
+   }
+   
+   /* Wrapper de texto centralizado */
+   .mobile-join-text-wrapper {
+       width: 100%;
+       max-width: 375px; 
+       margin: 0 auto; 
+       padding: 0 24px; 
+       box-sizing: border-box;
+   }
+
+   /* --- Título (Como fazer parte?) --- */
+   .mobile-join-title-group {
+       position: relative; 
+       width: 100%;
+       max-width: 375px; 
+       margin: 0 auto; 
+       padding-top: 48px;
+       padding-left: 24px;
+       padding-right: 24px;
+       box-sizing: border-box;
+       height: 81px; 
+   }
+
+   .mobile-join-title-group h2 {
+       position: absolute;
+       top: 48px;
+       left: 24px;
+       white-space: nowrap;
+       height: 33px;
+       font-size: 28px;
+       font-weight: 700;
+       font-style: italic;
+       color: var(--color-primary-dark-blue);
+   }
+   
+   .mobile-join-title-lines {
+       position: absolute;
+       top: 52px; 
+       left: 267px;
+       width: 107.3px;
+       height: 30.01px;
+   }
+   
+   /* --- Subtítulo (Você é parte fundamental...) --- */
+   #mobile-join-steps-section h3 {
+       position: relative; 
+       width: 100%;
+       max-width: 375px; 
+       margin: 48px auto 0 auto; 
+       padding: 0 24px; 
+       box-sizing: border-box;
+       left: auto;
+       top: auto;
+       font-size: 28px;
+       font-weight: 300;
+       font-style: italic;
+       line-height: 1.2;
+       color: var(--color-primary-dark-blue);
+   }
+   
+   /* --- Parágrafo (Para se cadastrar...) --- */
+   #mobile-join-steps-section p {
+       position: relative; 
+       width: 100%;
+       max-width: 375px; 
+       margin: 16px auto 0 auto; 
+       padding: 0 24px; 
+       box-sizing: border-box;
+       left: auto;
+       top: auto;
+       font-size: 16px;
+       font-weight: 400;
+       line-height: 1.4;
+       color: var(--color-primary-dark-blue);
+   }
+
+   /* --- LIMPA QUALQUER REGRA ANTIGA DE TEXTO --- */
+   .timeline-blue-bar,
+   .timeline-number,
+   .timeline-content,
+   .timeline-white-bar,
+   .steps-timeline-container {
+       display: none;
+   }
+
+   /* --- Wrapper do Scroll (Coordenada Y: 358) --- */
+   .mobile-steps-scroll-wrapper {
+       position: relative;
+       margin-top: 40px; 
+       left: 0;
+       width: 100%;
+       overflow-x: auto;
+       white-space: nowrap; 
+       -webkit-overflow-scrolling: touch; 
+       scrollbar-width: none; 
+       -ms-overflow-style: none;
+       height: 116.07px; 
+   }
+   .mobile-steps-scroll-wrapper::-webkit-scrollbar { display: none; }
+
+   /* --- Container "Artboard" (Coordenada X: 24) --- */
+   .steps-timeline-container-spec {
+       position: relative;
+       width: 1643px;
+       height: 116.07px;
+       margin-left: 24px; 
+       margin-right: 24px;
+   }
+   
+   /* --- Estilo base para todas as imagens SVG --- */
+   .timeline-img {
+       position: absolute;
+       max-width: none; 
+       margin: 0;
+       padding: 0;
+       display: block;
+   }
+
+   /* --- Posicionamento exato de cada SVG --- */
+   #svg-retangulo {
+       width: 1598.93px;
+       height: 94.35px;
+       left: 44.07px; 
+       top: 12.41px; 
+       z-index: 1;
+   }
+   #svg-n1 {
+       width: 49.04px;
+       height: 112.35px;
+       left: 0px; 
+       top: 1.86px; 
+       z-index: 3;
+   }
+   #svg-acesse {
+       width: 153px;
+       height: 20px;
+       left: 68px; 
+       top: 48px; 
+       z-index: 2;
+   }
+   #svg-n2 {
+       width: 79.45px;
+       height: 114.21px;
+       left: 256.97px; 
+       top: 0.62px; 
+       z-index: 3;
+   }
+   #svg-preencha {
+       width: 266.96px;
+       height: 65.34px;
+       left: 355.04px; 
+       top: 25px; 
+       z-index: 2;
+   }
+   #svg-n3 {
+       width: 78.83px;
+       height: 116.07px;
+       left: 633.74px; 
+       top: 0px; 
+       z-index: 3;
+   }
+   #svg-ctv {
+       width: 229.66px;
+       height: 63px;
+       left: 731.19px; 
+       top: 27px; 
+       z-index: 2;
+   }
+   #svg-master {
+       width: 275.59px;
+       height: 63px;
+       left: 978.85px; 
+       top: 27px; 
+       z-index: 2;
+   }
+   #svg-barmobile {
+       width: 14.76px;
+       height: 79.44px;
+       left: 1285.48px; 
+       top: 19.75px; 
+       z-index: 2;
+   }
+   #svg-atento {
+       width: 298px;
+       height: 26px;
+       left: 1319px; 
+       top: 47px; 
+       z-index: 2;
+   }
+   
+   /* --- Indicador de Arraste (Coordenada Y: 514) --- */
+   .mobile-drag-indicator {
+       position: relative; 
+       margin-top: 40px; 
+       width: 201.27px; 
+       height: 14px; 
+       left: 50%;
+       transform: translateX(-50%);
+   }
+   
+   .mobile-drag-indicator span {
+       display: none;
+   }
+   
+   .mobile-drag-indicator img#svg-arraste {
+       display: block;
+       width: 100%;
+       height: 100%;
+   }
+
+   /* --- Imagem Inferior --- */
+   .mobile-join-bottom-image {
+       position: relative; 
+       margin-top: 40px; 
+       left: 0;
+       width: 100%; 
+       height: 465px;
+       object-fit: cover;
+       object-position: top center;
+   }
+
+   /* ==========================================================
    10.9. Already Registered Section Mobile
    ========================================================== */
 
-  #already-registered-section {
-    height: auto; 
-    overflow: visible; 
-    padding-top: 48px; 
-    z-index: 2;
-  }
+   #already-registered-section {
+       height: auto; 
+       overflow: visible; 
+       padding-top: 48px; 
+       z-index: 2;
+   }
 
-  .registered-app-image.img-desktop {
-    display: none;
-  }
-  
-  .registered-decorative-lines {
-    display: none;
-  }
+   .registered-app-image.img-desktop {
+       display: none;
+   }
+   
+   .registered-decorative-lines {
+       display: none;
+   }
 
-  .registered-content {
-    position: relative; 
-    width: 100%;
-    max-width: 375px; 
-    margin: 0 auto; 
-    padding: 0 24px; 
-    box-sizing: border-box;
-    height: 200px; 
-    left: auto;
-    top: auto;
-    transform: none !important; 
-    opacity: 1 !important; 
-    z-index: 3; 
-  }
+   .registered-content {
+       position: relative; 
+       width: 100%;
+       max-width: 375px; 
+       margin: 0 auto; 
+       padding: 0 24px; 
+       box-sizing: border-box;
+       /* Otimizado: Removido 'height: 200px' fixo. */
+       height: auto; 
+       left: auto;
+       top: auto;
+       transform: none !important; 
+       opacity: 1 !important; 
+       z-index: 3; 
+   }
 
-  .registered-content h2 {
-    height: auto; 
-    font-size: 28px;
-    line-height: 1.2; 
-    margin-bottom: 0;
-    width: 100%; 
-    /* font-weight: 300; (Otimizado: Removido, já herdado) */
-    /* font-style: italic; (Otimizado: Removido, já herdado) */
-  }
-  .registered-content h3 {
-    width: 100%; 
-    max-width: 326px; 
-    height: auto; 
-    font-size: 16px;
-    /* font-weight: 400; (Otimizado: Removido, já herdado) */
-    font-style: normal; /* Sobrescreve 'italic' do H3 global, se houver */
-    line-height: 1.3;
-    margin-top: 16px; 
-  }
-  .registered-content .highlight-bold {
-    width: 100%; 
-    max-width: 326px; 
-    height: auto; 
-    font-size: 16px;
-    /* font-weight: 700; (Otimizado: Removido, já herdado) */
-    line-height: 1.3; 
-    margin-top: 16px; 
-  }
-  .registered-content p:not(.highlight-bold) {
-    width: 100%; 
-    max-width: 332px; 
-    height: auto; 
-    font-size: 16px;
-    /* font-weight: 400; (Otimizado: Removido, já herdado) */
-    line-height: 1.3;
-    margin-top: 16px; 
-  }
+   .registered-content h2 {
+       height: auto; 
+       font-size: 28px;
+       line-height: 1.2; 
+       margin-bottom: 0;
+       width: 100%; 
+   }
+   .registered-content h3 {
+       width: 100%; 
+       max-width: 326px; 
+       height: auto; 
+       font-size: 16px;
+       font-style: normal;
+       line-height: 1.3;
+       margin-top: 16px; 
+   }
+   .registered-content .highlight-bold {
+       width: 100%; 
+       max-width: 326px; 
+       height: auto; 
+       font-size: 16px;
+       line-height: 1.3; 
+       margin-top: 16px; 
+   }
+   .registered-content p:not(.highlight-bold) {
+       width: 100%; 
+       max-width: 332px; 
+       height: auto; 
+       font-size: 16px;
+       line-height: 1.3;
+       margin-top: 16px; 
+   }
 
-  .registered-app-image-mobile.img-mobile {
-    display: block; 
-    position: relative; 
-    width: 100%; 
-    margin-top: 40px; 
-    z-index: 3;
-    object-fit: cover; 
-    object-position: top center;
-    transform: translateY(150px);
-    opacity: 1 !important; /* Desliga animação de fade-in */
-  }
+   .registered-app-image-mobile.img-mobile {
+       display: block; 
+       position: relative; 
+       width: 100%; 
+       /* Otimizado: Removido height fixo. Deixa a imagem ter sua altura natural */
+       margin-top: 40px; 
+       z-index: 3;
+       object-fit: cover; 
+       object-position: top center;
+       opacity: 1 !important; /* Desliga animação de fade-in */
+   }
 
-  /* ==========================================================
+   /* ==========================================================
    10.10. Avoid Scams Section Mobile
    ========================================================== */
 
-  #avoid-scams-section {
-    height: auto; 
-    overflow: hidden;
-    /* Padding para compensar a imagem que "invade" de cima */
-    padding: 224px 0 40px 0; 
-    box-sizing: border-box;
-    z-index: 1; 
-  }
+   #avoid-scams-section {
+       height: auto; 
+       overflow: hidden;
+       /* Padding para compensar a imagem que "invade" de cima */
+       padding: 60px 0 40px 0; 
+       box-sizing: border-box;
+       z-index: 1; 
+   }
 
-  #avoid-scams-section .scams-decorative-lines {
-    display: none;
-  }
+   #avoid-scams-section .scams-decorative-lines {
+       display: none;
+   }
 
-  #avoid-scams-section .scams-headline {
-    position: relative; 
-    width: 100%;
-    max-width: 375px; 
-    margin: 0 auto; 
-    padding: 0 24px; 
-    box-sizing: border-box;
-    height: auto;
-    left: auto;
-    top: auto;
-    font-size: 26px;
-    line-height: 1.2;
-    /* font-weight: 300; (Otimizado: Removido, já herdado) */
-    /* font-style: italic; (Otimizado: Removido, já herdado) */
-    transform: none !important;
-    opacity: 1 !important;
-  }
+   #avoid-scams-section .scams-headline {
+       position: relative; 
+       width: 100%;
+       max-width: 375px; 
+       margin: 0 auto; 
+       padding: 0 24px; 
+       box-sizing: border-box;
+       height: auto;
+       left: auto;
+       top: auto;
+       font-size: 26px;
+       line-height: 1.2;
+       transform: none !important;
+       opacity: 1 !important;
+   }
 
-  #avoid-scams-section .scams-description {
-    position: relative; 
-    width: 100%;
-    max-width: 375px; 
-    margin: 16px auto 0 auto; 
-    padding: 0 24px; 
-    box-sizing: border-box;
-    height: auto; 
-    left: auto;
-    top: auto;
-    font-size: 16px; 
-    line-height: 1.4; 
-    /* font-weight: 400; (Otimizado: Removido, já herdado) */
-    transform: none !important;
-    opacity: 1 !important;
-  }
+   #avoid-scams-section .scams-description {
+       position: relative; 
+       width: 100%;
+       max-width: 375px; 
+       margin: 16px auto 0 auto; 
+       padding: 0 24px; 
+       box-sizing: border-box;
+       height: auto; 
+       left: auto;
+       top: auto;
+       font-size: 16px; 
+       line-height: 1.4; 
+       transform: none !important;
+       opacity: 1 !important;
+   }
 
-  #avoid-scams-section .scams-button {
-    position: relative; 
-    width: 172px; 
-    height: 36px; 
-    top: auto;
-    left: 50%; 
-    display: grid; 
-    place-items: center;
-    margin-top: 40px; 
-    /* Lógica de animação corrigida para mobile */
-    transform: translateX(-50%) translateY(50px);
-    opacity: 0; 
-    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-  }
+   #avoid-scams-section .scams-button {
+       position: relative; 
+       width: 172px; 
+       height: 36px; 
+       top: auto;
+       left: 50%; 
+       display: grid; 
+       place-items: center;
+       margin-top: 40px; 
+       /* Lógica de animação corrigida para mobile */
+       transform: translateX(-50%) translateY(50px);
+       opacity: 0; 
+       transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+   }
 
-  #avoid-scams-section.is-visible .scams-button {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
+   #avoid-scams-section.is-visible .scams-button {
+       transform: translateX(-50%) translateY(0);
+       opacity: 1;
+   }
 
-  #avoid-scams-section .scams-button .button-desktop {
-    display: none; 
-  }
+   #avoid-scams-section .scams-button .button-desktop {
+       display: none; 
+   }
 
-  #avoid-scams-section .scams-button .button-mobile {
-    display: block; 
-    width: 100%;
-    height: 100%;
-    grid-area: 1 / 1; 
-  }
+   #avoid-scams-section .scams-button .button-mobile {
+       display: block; 
+       width: 100%;
+       height: 100%;
+       grid-area: 1 / 1; 
+   }
 
-  #avoid-scams-section .scams-button span {
-    font-size: 14px;
-    /* color: var(--color-primary-dark-blue); (Otimizado: Removido, já herdado) */
-    grid-area: 1 / 1; 
-    z-index: 2;
-  }
-
-  /* ==========================================================
+   #avoid-scams-section .scams-button span {
+       font-size: 14px;
+       grid-area: 1 / 1; 
+       z-index: 2;
+   }
+   
+   /* ==========================================================
    10.11. Footer Mobile (Layout Flexível)
    ========================================================== */
 
-  #site-footer {
-    height: auto;
-    position: relative;
-  }
+   #site-footer {
+       height: auto;
+       position: relative;
+   }
 
-  /* --- 1. Footer Top (Fundo Azul) --- */
-  .footer-top {
-    position: static;
-    width: 100%;
-    height: auto;
-    /* Padding para alinhamento esquerdo da imagem */
-    padding: 36px 24px 40px 24px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    /* Alinha tudo à esquerda (como na imagem) */
-    align-items: center;
-  }
- 
-  .footer-text-content {
-    position: static;
-    width: 100%;
-    max-width: 327px;
-    height: auto;
-    /* Alinhado à esquerda (como na imagem) */
-    text-align: left;
-    color: var(--color-white);
-  }
- 
-  .footer-text-content h2 {
-    font-size: 18px;
-    font-weight: 700;
-    font-style: italic;
-    line-height: 1.3;
-  }
- 
-  .footer-text-content p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.4;
-    margin-top: 12px;
-  }
- 
-  .footer-app-stores {
-    position: static;
-    display: flex;
-    /* Lado a lado (como na imagem) */
-    flex-direction: row;
-    align-items: center;
-    gap: 12px; /* Espaçamento entre os botões */
-    margin-top: 24px;
-  }
- 
-  .footer-app-stores .app-store-link img {
-    width: 116px;
-    height: auto;
-  }
+   /* --- 1. Footer Top (Fundo Azul) --- */
+   .footer-top {
+       position: static;
+       width: 100%;
+       height: auto;
+       padding: 36px 24px 40px 24px;
+       box-sizing: border-box;
+       display: flex;
+       flex-direction: column;
+       /* Otimizado: alinhado à esquerda como na imagem */
+       align-items: flex-start;
+   }
+   
+   .footer-text-content {
+       position: static;
+       width: 100%;
+       max-width: 327px;
+       height: auto;
+       text-align: left;
+       color: var(--color-white);
+   }
+   
+   .footer-text-content h2 {
+       font-size: 18px;
+       font-weight: 700;
+       font-style: italic;
+       line-height: 1.3;
+   }
+   
+   .footer-text-content p {
+       font-size: 16px;
+       font-weight: 400;
+       line-height: 1.4;
+       margin-top: 12px;
+   }
+   
+   .footer-app-stores {
+       position: static;
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       gap: 12px;
+       margin-top: 24px;
+       /* Otimizado: Garante que os botões fiquem à esquerda */
+       width: 100%;
+       max-width: 327px;
+       justify-content: flex-start;
+   }
+   
+   .footer-app-stores .app-store-link img {
+       width: 116px;
+       height: auto;
+   }
 
-  /* --- 2. Footer Middle (Branco) --- */
-  .footer-middle {
-    position: static;
-    width: 100%;
-    height: 80px;
-    /* Usamos Flex para dividir os itens */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 24px;
-    box-sizing: border-box;
-  }
- 
-  .footer-stripe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-  }
- 
-  .footer-subtitle {
-    position: static;
-    /* Limita a largura para não encostar na logo */
-    flex-basis: 60%;
-    width: auto;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--color-primary-dark-blue);
-  }
- 
-  .footer-bayer-logo {
-    position: static;
-    width: 47px;
-    height: 47px;
-    flex-shrink: 0; /* Impede que a logo achate */
-  }
+   /* --- 2. Footer Middle (Branco) --- */
+   .footer-middle {
+       position: static; /* Mantém para .footer-stripe */
+       width: 100%;
+       height: 80px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 0 24px;
+       box-sizing: border-box;
+   }
+   
+   .footer-stripe {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 2px;
+   }
+   
+   .footer-subtitle {
+       position: static;
+       flex-basis: 60%;
+       width: auto; 
+       font-size: 14px;
+       font-weight: 700;
+       line-height: 1.3;
+       color: var(--color-primary-dark-blue);
+   }
+   
+   .footer-bayer-logo {
+       position: static;
+       width: 47px;
+       height: 47px;
+       flex-shrink: 0; 
+   }
 
-  /* --- 3. Footer Bottom (Azul Escuro) --- */
-  .footer-bottom {
-    position: static;
-    width: 100%;
-    height: auto;
-    padding: 40px 24px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: var(--color-white);
-  }
- 
-  .footer-contact {
-    /*     * TRUQUE DE CSS: 
-    * Faz o .footer-contact "desaparecer" e coloca seus filhos 
-    * (logo, phone, disclaimer) como itens diretos do flex .footer-bottom.
-    * Isso nos deixa reordenar o disclaimer para o final.
-    */
-    display: contents;
-  }
- 
-  .contact-logo {
-    position: static;
-    width: 155.22px;
-    height: 71.1px;
-    order: 1; /* Ordem visual #1 */
-  }
- 
-  .contact-phone {
-    position: static;
-    margin-top: 12px;
-    font-size: 16px;
-    font-weight: 400;
-    order: 2; /* Ordem visual #2 */
-    width: auto;
-  }
- 
-  .footer-social {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 32px;
-    order: 3; /* Ordem visual #3 */
-    width: auto;
-  }
- 
-  .footer-social h3 {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.3;
-  }
- 
-  .social-icons-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    margin-top: 20px;
-    gap: 18px;
-  }
- 
-  .social-icons-list a img {
-    width: 45px;
-    height: 45px;
-  }
- 
-  .contact-disclaimer {
-    position: static;
-    width: 100%;
-    max-width: 260px;
-    margin-top: 32px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.4;
-    order: 4; /* Ordem visual #4 (último item) */
-  }
+   /* --- 3. Footer Bottom (Azul Escuro) --- */
+   .footer-bottom {
+       position: static;
+       width: 100%;
+       height: auto;
+       padding: 40px 24px;
+       box-sizing: border-box;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       text-align: center;
+       color: var(--color-white);
+   }
+   
+   .footer-contact {
+       /* Truque de CSS para reordenar os filhos */
+       display: contents;
+   }
+   
+   .contact-logo {
+       position: static;
+       width: 155.22px;
+       height: 71.1px;
+       order: 1; /* Ordem visual #1 */
+   }
+   
+   .contact-phone {
+       position: static;
+       width: auto; /* Correção da quebra de linha */
+       margin-top: 12px;
+       font-size: 16px;
+       font-weight: 400;
+       order: 2; /* Ordem visual #2 */
+   }
+   
+   .footer-social {
+       position: static;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       margin-top: 32px;
+       order: 3; /* Ordem visual #3 */
+       width: 100%;
+   }
+   
+   .footer-social h3 {
+       font-size: 16px;
+       font-weight: 700;
+       line-height: 1.3;
+   }
+   
+   .social-icons-list {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-wrap: nowrap;
+       margin-top: 20px;
+       gap: 18px;
+   }
+   
+   .social-icons-list a img {
+       width: 45px;
+       height: 45px;
+   }
+   
+   .contact-disclaimer {
+       position: static;
+       width: 100%;
+       max-width: 260px;
+       margin-top: 32px;
+       font-size: 12px;
+       font-weight: 400;
+       line-height: 1.4;
+       order: 4; /* Coloca o disclaimer no final */
+   }
 
-  /* ==========================================================
-10.12. Botão Voltar ao Topo (Mobile)
-========================================================== */
+   /* ==========================================================
+   10.12. Botão Voltar ao Topo (Mobile)
+   ========================================================== */
 
-.back-to-top-button .img-desktop {
-display: none;
+   .back-to-top-button .img-desktop {
+       display: none;
+   }
+
+   .back-to-top-button .img-mobile {
+       display: block;
+       width: 100%;
+       height: 100%;
+   }
+
+   .back-to-top-button {
+       width: 172px;
+       height: 36px;
+       top: auto;
+       right: auto;
+       bottom: 24px; 
+       left: 50%;
+       transform: translateX(-50%) translateY(100px); 
+       transition: all 0.3s ease-in-out;
+   }
+
+   .back-to-top-button.visible {
+       transform: translateX(-50%) translateY(0);
+   }
 }
-
-.back-to-top-button .img-mobile {
-display: block;
-width: 100%; /* 172px */
-height: 100%; /* 36px */
-}
-
-.back-to-top-button {
-/* Posição e Tamanho */
-width: 172px;
-height: 36px;
-top: auto;
-right: auto;
-bottom: 24px; /* Distância do fundo */
-left: 50%;
-
-/* Animação (Início) - Escondido em baixo */
-/* O JS vai remover a classe .visible ao rolar para baixo, 
- e este 'transform' vai fazê-lo deslizar para baixo e sumir */
-transform: translateX(-50%) translateY(100px); 
-transition: all 0.3s ease-in-out;
-}
-
-.back-to-top-button.visible {
-/* Animação (Fim) - Visível no centro */
-/* O JS adiciona a classe .visible ao rolar para cima,
-e este 'transform' faz ele deslizar para cima */
-transform: translateX(-50%) translateY(0);
-}
-} 
