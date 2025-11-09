@@ -96,53 +96,62 @@ h1, h2, h3, h4, p {
 }
 
 /* --- Acordeão FAQ --- */
+/* --- Acordeão FAQ --- */
 .faq-accordion {
-   width: 100%;
+ width: 100%;
 }
 .faq-item {
-   border-bottom: 1px solid var(--color-accent-yellow);
+ border-bottom: 1px solid var(--color-accent-yellow);
 }
 .faq-question {
-   width: 100%;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 1.736vw 0;
-   cursor: pointer;
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 1.736vw 0;
+ cursor: pointer;
 }
 .faq-question p {
-   font-size: var(--font-size-lg);
-   font-weight: 700;
-   color: var(--color-primary-dark-blue);
-   padding-right: 1.389vw;
+ font-size: var(--font-size-lg);
+ font-weight: 700;
+ color: var(--color-primary-dark-blue);
+ padding-right: 1.389vw;
 }
 .faq-icon-container {
-   width: 2.118vw;
-   height: 2.153vw;
-   flex-shrink: 0;
+ width: 2.118vw;
+ height: 2.153vw;
+ flex-shrink: 0;
 }
 .faq-icon {
-   width: 100%;
-   height: 100%;
+ width: 100%;
+ height: 100%;
 }
+
+/* --- LÓGICA DE ABRIR/FECHAR ÍCONES --- */
 .icon-minus { display: none; }
 .faq-item.active .icon-plus { display: none; }
 .faq-item.active .icon-minus { display: block; }
+
+/* --- CORREÇÃO DA ANIMAÇÃO (SEM DELAY AO FECHAR) --- */
 .faq-answer {
-   max-height: 0;
-   overflow: hidden;
-   transition: max-height 0.4s ease-out;
+ max-height: 0;
+ overflow: hidden;
+ /* A transição foi REMOVIDA daqui para o fechamento ser instantâneo */
 }
+
 .faq-item.active .faq-answer {
-   max-height: 100vh;
+ max-height: 100vh;
+ transition: max-height 0.4s ease-out; /* A transição agora só se aplica ao ABRIR */
 }
+/* -------------------------------------------------- */
+
 .faq-answer p {
-   font-size: clamp(1rem, 1.389vw, 1.25rem);
-   font-weight: 400;
-   color: var(--color-primary-dark-blue);
-   line-height: 1.5;
-   padding-top: 0.694vw;
-   padding-bottom: 2.778vw;
+ font-size: clamp(1rem, 1.389vw, 1.25rem);
+ font-weight: 400;
+ color: var(--color-primary-dark-blue);
+ line-height: 1.5;
+ padding-top: 0.694vw;
+ padding-bottom: 2.778vw;
 }
 
 /* ==========================================================================
@@ -1688,120 +1697,119 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
 
    /* --- 1. Footer Top (Fundo Azul) --- */
    .footer-top {
-       position: static;
-       width: 100%;
-       height: auto;
-       padding: 36px 24px 40px 24px;
-       box-sizing: border-box;
-       display: flex;
-       flex-direction: column;
-       /* Otimizado: alinhado à esquerda como na imagem */
-       align-items: flex-start;
-   }
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 36px 24px 40px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    }
    
    .footer-text-content {
-       position: static;
-       width: 100%;
-       max-width: 327px;
-       height: auto;
-       text-align: left;
-       color: var(--color-white);
-   }
+   position: static;
+   width: 100%;
+   max-width: 327px;
+   height: auto;
+   text-align: left;
+   color: var(--color-white);
+ }
    
    .footer-text-content h2 {
-       font-size: 18px;
-       font-weight: 700;
-       font-style: italic;
-       line-height: 1.3;
-   }
+   font-size: 18px;
+   font-weight: 700;
+   font-style: italic;
+   line-height: 1.3;
+ }
    
    .footer-text-content p {
-       font-size: 16px;
-       font-weight: 400;
-       line-height: 1.4;
-       margin-top: 12px;
-   }
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 1.4;
+   margin-top: 12px;
+ }
    
    .footer-app-stores {
-       position: static;
-       display: flex;
-       flex-direction: row;
-       align-items: center;
-       gap: 12px;
-       margin-top: 24px;
-       /* Otimizado: Garante que os botões fiquem à esquerda */
-       width: 100%;
-       max-width: 327px;
-       justify-content: flex-start;
-   }
+   position: static;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 12px;
+   margin-top: 24px;
+   width: 100%;
+   max-width: 327px;
+   justify-content: center; /* <-- ÚNICA ALTERAÇÃO AQUI */
+ }
    
    .footer-app-stores .app-store-link img {
-       width: 116px;
-       height: auto;
-   }
+   width: 116px;
+   height: auto;
+ }
 
    /* --- 2. Footer Middle (Branco) --- */
    .footer-middle {
-       position: static; /* Mantém para .footer-stripe */
-       width: 100%;
-       height: 80px;
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-       padding: 0 24px;
-       box-sizing: border-box;
-   }
+   position: static; /* Mantém para .footer-stripe */
+   width: 100%;
+   height: 80px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 24px;
+   box-sizing: border-box;
+ }
    
    .footer-stripe {
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 2px;
-   }
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 2px;
+ }
    
    .footer-subtitle {
-       position: static;
-       flex-basis: 60%;
-       width: auto; 
-       font-size: 14px;
-       font-weight: 700;
-       line-height: 1.3;
-       color: var(--color-primary-dark-blue);
-   }
+   position: static;
+   flex-basis: 60%;
+   width: auto;
+   font-size: 14px;
+   font-weight: 700;
+   line-height: 1.3;
+   color: var(--color-primary-dark-blue);
+ }
    
    .footer-bayer-logo {
-       position: static;
-       width: 47px;
-       height: 47px;
-       flex-shrink: 0; 
-   }
+   position: static;
+   width: 47px;
+   height: 47px;
+   flex-shrink: 0;
+ }
 
    /* --- 3. Footer Bottom (Azul Escuro) --- */
-   .footer-bottom {
-       position: static;
-       width: 100%;
-       height: auto;
-       padding: 40px 24px;
-       box-sizing: border-box;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       text-align: center;
-       color: var(--color-white);
-   }
+   /* --- 3. Footer Bottom (Azul Escuro) --- */
+ .footer-bottom {
+   position: static;
+   width: 100%;
+   height: auto;
+   padding: 40px 24px;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   color: var(--color-white);
+ }
    
    .footer-contact {
-       /* Truque de CSS para reordenar os filhos */
-       display: contents;
-   }
+   /* Truque de CSS para reordenar os filhos */
+   display: contents;
+ }
    
    .contact-logo {
-       position: static;
-       width: 155.22px;
-       height: 71.1px;
-       order: 1; /* Ordem visual #1 */
-   }
+   position: static;
+   width: 155.22px;
+   height: 71.1px;
+   order: 1; /* Ordem visual #1 */
+ }
    
    .contact-phone {
        position: static;
@@ -1813,20 +1821,20 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
    }
    
    .footer-social {
-       position: static;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       margin-top: 32px;
-       order: 3; /* Ordem visual #3 */
-       width: 100%;
-   }
+   position: static;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 32px;
+   order: 3; /* Ordem visual #3 */
+   width: 100%;
+ }
    
    .footer-social h3 {
-       font-size: 16px;
-       font-weight: 700;
-       line-height: 1.3;
-   }
+   font-size: 16px;
+   font-weight: 700;
+   line-height: 1.3;
+ }
    
    .social-icons-list {
        display: flex;
@@ -1843,15 +1851,15 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
    }
    
    .contact-disclaimer {
-       position: static;
-       width: 100%;
-       max-width: 260px;
-       margin-top: 32px;
-       font-size: 12px;
-       font-weight: 400;
-       line-height: 1.4;
-       order: 4; /* Coloca o disclaimer no final */
-   }
+   position: static;
+   width: 100%;
+   max-width: 260px;
+   margin-top: 32px;
+   font-size: 12px;
+   font-weight: 400;
+   line-height: 1.4;
+   order: 4; /* Coloca o disclaimer no final */
+ }
 
    /* ==========================================================
    10.12. Botão Voltar ao Topo (Mobile)
