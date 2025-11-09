@@ -2415,7 +2415,6 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
  position: absolute;
  left: calc(50% - 187.5px + 24px);
  top: 40px;
- width: 303px; /* <-- LARGURA ATUALIZADA DA SPEC */
  height: auto; /* Altura flui com o texto */
  font-size: 28px;
  font-weight: 700;
@@ -2426,7 +2425,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
  /* w32 h30.01 x343 y41 - Alinhado à margem direita de 24px */
  position: absolute;
  left: auto; /* <-- REMOVIDO */
- right: calc(50% - 187.5px + 24px); /* <-- ADICIONADO: Alinha à margem de conteúdo direita */
+ right: calc(50% - 187.5px + 1px); /* <-- ADICIONADO: Alinha à margem de conteúdo direita */
  top: 41px;
  width: 32px;
  height: 30.01px;
