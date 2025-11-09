@@ -792,6 +792,88 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
    display: none;
 }
 
+/* ==========================================================================
+   11. Preloader de Carregamento
+   ========================================================================== */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary-dark-blue); /* Fundo azul escuro do site */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Garante que fique no topo */
+    
+    /* Transição para o fade-out */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.75s ease-out, visibility 0s 0.75s;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Impede cliques após ficar invisível */
+}
+
+.preloader-logo {
+    width: 15vw;
+    max-width: 200px;
+    min-width: 100px; /* Garante tamanho mínimo no mobile */
+    height: auto;
+    margin-bottom: 24px;
+    
+    /* Animação de pulsar */
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.preloader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.2); /* Borda do spinner */
+    border-top-color: var(--color-accent-yellow); /* Cor do spinner (amarelo do site) */
+    border-radius: 50%;
+    
+    /* Animação de girar */
+    animation: spin 1s linear infinite;
+}
+
+/* Animação do Spinner (girar) */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animação do Logo (pulsar) */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+}
+
+/* Ajuste para o preloader no mobile */
+@media (max-width: 768px) {
+    .preloader-spinner {
+        width: 30px;
+        height: 30px;
+        border-width: 3px;
+    }
+}
+
 
 /* ==========================================================================
    10. Estilos Mobile (Tablet e Celular)

@@ -12,6 +12,11 @@
 </head>
 <body>
 
+    <div id="preloader">
+        <img src="assets/images/common/logo.svg" alt="Logo Parceria Premiada" class="preloader-logo">
+        <div class="preloader-spinner"></div>
+    </div>
+
     <header class="main-header">
         <nav class="navbar">
             <a href="index.html" class="navbar-logo">
@@ -161,6 +166,18 @@
     </a>
 
 <script>
+
+    // --- SCRIPT DO PRELOADER ---
+    const preloader = document.getElementById('preloader');
+    
+    // 'load' espera por TUDO (imagens, etc.) carregar
+    window.addEventListener('load', () => {
+        if (preloader) {
+            preloader.classList.add('hidden');
+        }
+    });
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- SCRIPT DE ANIMAÇÃO AO ROLAR (O QUE FALTAVA) ---
