@@ -1883,80 +1883,91 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
    }
 
 /* ==========================================================
-   10.13. Página Como Funciona - Intro CTV (Baseado em Coordenadas)
-   ========================================================== */
+ 10.13. Página Como Funciona - Intro CTV (Baseado em Coordenadas) - ATUALIZADO
+ ========================================================== */
 
 #ctv-intro-section {
-    height: 628px;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    margin-top: 0;
-    transform: none !important;
-    opacity: 1 !important;
+  height: 628px;
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  transform: none !important;
+  opacity: 1 !important;
 }
 #ctv-intro-section > * {
-    position: absolute;
-    transform: translateX(-50%);
+  position: absolute;
+  transform: translateX(-50%);
 }
 .ctv-intro-title-group {
-    width: 351px; 
-    height: 33px;
-    top: 40px;
-    left: calc(50% - 187.5px + 24px); 
-    transform: none;
-    z-index: 2;
+  width: 351px;
+  height: 33px;
+  top: 40px;
+  left: calc(50% - 187.5px + 24px);
+  transform: none;
+  z-index: 2; /* Padrão de empilhamento */
 }
 .ctv-intro-title {
-    position: absolute;
-    left: 0; 
-    top: 0; 
-    font-size: 28px;
-    font-weight: 700;
-    font-style: italic;
-    color: var(--color-primary-dark-blue);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 28px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-primary-dark-blue);
+  z-index: 2; /* Garante que o texto fique sobre as linhas */
 }
 .ctv-intro-lines {
-    position: absolute;
-    width: 88px;
-    height: 30.01px;
-    left: 263px; 
-    top: 2px; 
-    z-index: -1;
-    content: url('assets/images/how-it-works/title-lines-mobile.svg');
-    transform: none !important;
-    opacity: 1 !important;
+  position: absolute;
+  width: 88px;
+  height: 30.01px;
+  /*     ATUALIZADO: 
+    'left: auto;' e 'right: 0;' alinham o final da imagem 
+    ao final do elemento pai (o .ctv-intro-title-group), 
+    que por sua vez está alinhado à margem de 24px.
+  */
+  left: auto;
+  right: 0;
+  top: 2px;
+  z-index: 1; /* Fica atrás do título, mas visível */
+  content: url('assets/images/how-it-works/title-lines-mobile.svg');
+  transform: none !important;
+  opacity: 1 !important;
 }
 .ctv-intro-content {
-    width: 319px;
-    height: auto; 
-    left: calc(50% - 187.5px + 24px);
-    top: 113px;
-    z-index: 2;
-    transform: none !important;
-    opacity: 1 !important;
+  width: 319px;
+  height: auto;
+  left: calc(50% - 187.5px + 24px);
+  top: 113px;
+  z-index: 2; /* Padrão de empilhamento */
+  transform: none !important;
+  opacity: 1 !important;
 }
 .ctv-intro-headline {
-    font-size: 28px;
-    font-weight: 300; 
-    font-style: italic;
-    margin-bottom: 16px; 
+  font-size: 28px;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 16px;
 }
 .ctv-intro-description {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.4; 
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 .ctv-intro-illustration {
-    width: 350px;
-    height: 394px;
-    left: calc(50% - 187.5px + 25px);
-    top: 274px;
-    right: auto; 
-    z-index: 3; 
-    content: url('assets/images/how-it-works/ctv-illustration-mobile.svg');
-    transform: none !important;
-    opacity: 1 !important;
+  width: 350px;
+  height: 394px;
+  left: calc(50% - 187.5px + 25px);
+  top: 274px;
+  right: auto;
+  /*     ATUALIZADO: 
+    z-index: 3 já estava correto e garante que esta 
+    imagem se sobreponha ao grupo de título (z-index: 2) 
+    e ao conteúdo (z-index: 2).
+  */
+  z-index: 3;
+  content: url('assets/images/how-it-works/ctv-illustration-mobile.svg');
+  transform: none !important;
+  opacity: 1 !important;
 }
 
 
