@@ -247,7 +247,8 @@ h1, h2, h3, h4, p {
 .join-bottom-image,
 .registered-app-image-mobile,
 .back-to-top-button .img-mobile,
-.scams-button .button-mobile { 
+.scams-button .button-mobilel,
+.ctv-steps-section-mobile { 
     display: none;
 }
 /* Mostra elementos desktop no DESKTOP */
@@ -1880,4 +1881,737 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
    .back-to-top-button.visible {
        transform: translateX(-50%) translateY(0);
    }
+
+/* ==========================================================
+   10.13. Página Como Funciona - Intro CTV (Baseado em Coordenadas)
+   ========================================================== */
+
+#ctv-intro-section {
+    height: 628px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 0;
+    transform: none !important;
+    opacity: 1 !important;
+}
+#ctv-intro-section > * {
+    position: absolute;
+    transform: translateX(-50%);
+}
+.ctv-intro-title-group {
+    width: 351px; 
+    height: 33px;
+    top: 40px;
+    left: calc(50% - 187.5px + 24px); 
+    transform: none;
+    z-index: 2;
+}
+.ctv-intro-title {
+    position: absolute;
+    left: 0; 
+    top: 0; 
+    font-size: 28px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--color-primary-dark-blue);
+}
+.ctv-intro-lines {
+    position: absolute;
+    width: 88px;
+    height: 30.01px;
+    left: 263px; 
+    top: 2px; 
+    z-index: -1;
+    content: url('assets/images/how-it-works/title-lines-mobile.svg');
+    transform: none !important;
+    opacity: 1 !important;
+}
+.ctv-intro-content {
+    width: 319px;
+    height: auto; 
+    left: calc(50% - 187.5px + 24px);
+    top: 113px;
+    z-index: 2;
+    transform: none !important;
+    opacity: 1 !important;
+}
+.ctv-intro-headline {
+    font-size: 28px;
+    font-weight: 300; 
+    font-style: italic;
+    margin-bottom: 16px; 
+}
+.ctv-intro-description {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4; 
+}
+.ctv-intro-illustration {
+    width: 350px;
+    height: 394px;
+    left: calc(50% - 187.5px + 25px);
+    top: 274px;
+    right: auto; 
+    z-index: 3; 
+    content: url('assets/images/how-it-works/ctv-illustration-mobile.svg');
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+
+/* ==========================================================
+   10.14. Página Como Funciona - NOVA TIMELINE CTV (Mobile) - Ajustado com Linha Horizontal
+   ========================================================== */
+
+/* 1. Esconde a seção desktop original no mobile */
+#ctv-steps-section {
+    display: none;
+}
+
+/* 2. Mostra e estiliza a nova seção mobile */
+#ctv-steps-section-mobile {
+    display: flex; /* Para o "arraste" ficar abaixo do scroll */
+    flex-direction: column;
+    height: 395px; /* h395 */
+    width: 100%;
+    background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* 3. O container que permite o scroll */
+.ctv-steps-scroll-container-mobile {
+    width: 100%;
+    height: 329px; /* h329 (do "timeline-wrapper") */
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+    flex-shrink: 0;
+}
+.ctv-steps-scroll-container-mobile::-webkit-scrollbar {
+    display: none;
+}
+
+/* 4. O "artboard" gigante que rola */
+.timeline-canvas-mobile {
+    width: 1535px; /* w1535 */
+    height: 329px; /* h329 */
+    position: relative;
+    display: block;
+    /* Move o canvas para a coordenada x78 inicial */
+    left: 78px; 
+}
+
+/* 5. Estilos base para os elementos */
+.timeline-text-top-mobile,
+.timeline-icon-mobile,
+.timeline-text-bottom-mobile,
+.timeline-green-line-mobile {
+    position: absolute;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+}
+
+/* 6. A Linha Verde (HORIZONTAL) */
+.timeline-green-line-mobile {
+    height: 5px; /* weight 5 */
+    /* Calcula a largura: Centro do último ícone (1337 + 87.56/2) - Centro do primeiro ícone (72 + 87.56/2) */
+    /* (1337 + 43.78) - (72 + 43.78) = 1380.78 - 115.78 = 1265px */
+    width: 1265px; 
+    /* Left: Onde começa o primeiro ícone + metade da largura do ícone (72 + 87.56/2) */
+    left: 115.78px; 
+    /* Top: Onde começa o ícone + metade da altura do ícone (181 + 87.64/2) */
+    top: 224.82px; 
+    background-color: var(--color-accent-green);
+    z-index: 1; /* Fica no fundo */
+}
+
+/* 7. Z-index para os elementos ficarem na frente da linha */
+.timeline-text-top-mobile,
+.timeline-icon-mobile,
+.timeline-text-bottom-mobile {
+    z-index: 2;
+}
+
+/* --- ETAPA 1 --- */
+.timeline-text-top-mobile.step-1 {
+    /* w183 h48 x24 y107 */
+    width: 183px; height: 48px; left: 24px; top: 107px;
+    font-size: 16px; font-weight: 400;
+}
+.timeline-icon-mobile.step-1 {
+    /* w87.56 h87.64 x72 y181 */
+    width: 87.56px; height: 87.64px; left: 72px; top: 181px;
+}
+.timeline-text-bottom-mobile.step-1 {
+    /* w170 h33 x30 y295 */
+    width: auto; /* Remove width fixo */
+    white-space: nowrap; /* Impede quebra de linha */
+    height: auto; 
+    left: 30px; 
+    top: 295px;
+    font-size: 28px; font-weight: 400; font-style: italic; /* Corrigido */
+}
+
+/* --- ETAPA 2 --- */
+.timeline-text-top-mobile.step-2 {
+    /* w178 h72 x280 y83 */
+    width: 178px; height: 72px; left: 280px; top: 83px;
+    font-size: 16px; font-weight: 400;
+}
+.timeline-icon-mobile.step-2 {
+    /* w87.56 h87.64 x325 y181 */
+    width: 87.56px; height: 87.64px; left: 325px; top: 181px;
+}
+
+/* --- ETAPA 3 (Padrão) --- */
+.timeline-text-top-mobile.step-3 {
+    width: 178px; height: 72px; left: 536px; top: 83px; 
+    font-size: 16px; font-weight: 400;
+}
+.timeline-icon-mobile.step-3 {
+    width: 87.56px; height: 87.64px; left: 578px; top: 181px;
+}
+
+/* --- ETAPA 4 (Padrão) --- */
+.timeline-text-top-mobile.step-4 {
+    width: 178px; height: 72px; left: 792px; top: 83px;
+    font-size: 16px; font-weight: 400;
+}
+.timeline-icon-mobile.step-4 {
+    width: 87.56px; height: 87.64px; left: 831px; top: 181px;
+}
+
+/* --- ETAPA 5 (Padrão) --- */
+.timeline-text-top-mobile.step-5 {
+    width: 178px; height: 72px; left: 1048px; top: 83px;
+    font-size: 16px; font-weight: 400;
+}
+.timeline-icon-mobile.step-5 {
+    width: 87.56px; height: 87.64px; left: 1084px; top: 181px;
+}
+
+/* --- ETAPA 6 (Final) --- */
+.timeline-text-top-mobile.step-6 {
+    width: 178px; height: 72px; left: 1304px; top: 107px; 
+    font-size: 16px; font-weight: 400;
+}
+.timeline-icon-mobile.step-6 {
+    width: 87.56px; height: 87.64px; left: 1337px; top: 181px;
+}
+.timeline-text-bottom-mobile.step-6 {
+    width: auto; /* Remove width fixo */
+    white-space: nowrap; /* Impede quebra de linha */
+    height: auto; 
+    left: 1297px; 
+    top: 295px;
+    font-size: 28px; font-weight: 400; font-style: italic; /* Corrigido */
+}
+
+/* 8. Indicador "Arraste" */
+.timeline-drag-indicator-mobile {
+    /* w201.27 h14 x86 y355 */
+    width: 201.27px;
+    height: 14px;
+    display: block;
+    margin: 26px auto 0 auto; /* (y355 - h329) = 26px */
+    flex-shrink: 0;
+}
+
+/* ==========================================================
+   10.15. Página Como Funciona - Seção de Atenção
+   ========================================================== */
+
+#ctv-attention-section {
+    /* w375 h140 x0 y1143 */
+    height: 140px;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    
+    /* Define a imagem mobile como fundo */
+    background-image: url('assets/images/how-it-works/atencao-mobile.svg');
+    background-repeat: no-repeat;
+    
+    /* w271.16 h80 x52 y20 */
+    /* (x: 52px) é (375 - 271) / 2 = 52. 
+       Portanto, está centralizado. */
+    background-position: center 20px; 
+    background-size: 271.16px 80px;
+    
+    /* Desliga animação desktop */
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* Esconde os filhos do desktop (moldura, caixa, ícone, texto) */
+.attention-frame,
+.attention-box {
+    display: none;
+}
+
+/* ==========================================================
+   10.15. Página Como Funciona - Seção "Aprenda" (CTV)
+   ========================================================== */
+
+#ctv-learn-section {
+    height: auto; 
+    min-height: 0;
+    width: 100%;
+    position: relative;
+    overflow: visible !important; /* <-- ADICIONE ESTA LINHA */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 49px 24px 0 24px;
+    padding-bottom: 280px; /* <-- SEU PADDING */
+    box-sizing: border-box;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: 1; 
+    will-change: transform;
+}
+
+/* 1. Remove o .container do layout para reordenar os filhos */
+#ctv-learn-section .container {
+    display: contents;
+}
+
+/* 2. Coloca o Bloco de Conteúdo PRIMEIRO */
+.learn-content {
+    position: static;
+    width: 100%;
+    max-width: 327px; /* w327 (baseado no padding da seção) */
+    height: auto;
+    left: auto;
+    top: auto;
+    order: 1; /* <-- Ordem #1 */
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* 3. Coloca a Ilustração DEPOIS */
+.learn-illustration {
+    position: static;
+    width: 100%;
+    max-width: 350px; /* w350 */
+    height: auto;
+    left: auto;
+    top: auto;
+    /* (y:346) - (y:263 + h:48) = ~35px de margem */
+    margin-top: 35px;
+    order: 2; /* <-- Ordem #2 */
+    content: url('assets/images/how-it-works/learn-illustration-mobile.svg');
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* 4. Estiliza o conteúdo interno */
+.learn-headline {
+    position: relative; /* Reseta o absolute do desktop */
+    width: auto; /* w182 é muito pequeno, deixa fluir */
+    height: auto; /* h66 é muito pequeno, deixa fluir */
+    left: auto;
+    top: auto;
+    font-size: 28px;
+    font-style: italic;
+    /* font-weight: 300; (Já herdado) */
+    text-align: left; /* Alinha o texto na caixa */
+}
+
+.learn-decorative-lines {
+    position: relative;
+    width: 184px;
+    height: 25.06px;
+    left: 165px;
+    top: auto;
+    /* (y:90) - (y:49 + h:66) = ~ -25px. 
+       Isso significa que ele sobrepõe. 
+       Vamos usar margin-top negativo e alinhar à direita */
+    margin-top: -20px; 
+    margin-bottom: 30px;
+    align-self: flex-end; /* Alinha à direita */
+    content: url('assets/images/how-it-works/learn-title-lines-mobile.svg');
+}
+
+.learn-description {
+    position: static;
+    width: 100%; /* w327 */
+    height: auto;
+    left: auto;
+    top: auto;
+    font-size: 16px;
+    font-weight: 400; /* regular */
+    text-align: left;
+    margin: 0;
+}
+
+.learn-description strong {
+    font-weight: 700; /* bold */
+}
+
+/* ==========================================================
+   10.17. Página Como Funciona - Seção Vídeos (CTV)
+   ========================================================== */
+
+#ctv-videos-section {
+    height: auto; 
+    width: 100%;
+    padding: 0 0 40px 0; 
+    box-sizing: border-box;
+    position: relative; 
+    z-index: 2; /* Fica NA FRENTE */
+    margin-top: -120px; 
+}
+
+/* O "container" vira o wrapper de 327px */
+#ctv-videos-section .container {
+    width: 100%;
+    max-width: 327px; 
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    padding-top: 30px; 
+}
+
+.video-card {
+    position: static; 
+    width: 100%; 
+    height: auto; 
+    top: auto;
+    left: auto;
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+.video-card:first-child {
+    margin-top: -120px; /* Puxa o *primeiro card* para cima */
+}
+
+.video-card--2,
+.video-card--3,
+.video-card--4,
+.video-card--5 {
+    left: auto;
+    top: auto;
+}
+
+.video-thumbnail-wrapper {
+    width: 100%;
+    aspect-ratio: 325.76 / 182.85; 
+    height: auto; 
+    display: block;
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+}
+
+.video-play-icon {
+    width: 30px;
+    height: 30px;
+    top: 90px;
+
+}
+
+.video-title {
+    width: 100%;
+    text-align: center;
+    font-size: 18px; 
+    margin-top: 14px; 
+}
+
+/* ==========================================================
+ 10.18. Página Master - Seção Vídeos (Mobile) - CORRIGIDO
+ ========================================================== */
+
+#master-videos-section {
+  height: auto;
+  width: 100%;
+  padding: 0 0 40px 0;
+  box-sizing: border-box;
+  position: relative;
+  /*     ATUALIZADO: z-index: 2 para ficar ACIMA da seção steps.
+    A sobreposição do card de vídeo (que tem margin-top: -120px)
+    agora vai funcionar.
+  */
+  z-index: 2; 
+}
+
+#master-videos-section .container {
+  width: 100%;
+  max-width: 327px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 36px; 
+  padding-top: 30px;
+}
+
+/*  NOTA: A regra .video-card:first-child { margin-top: -120px; } 
+ que você já tem no seu CSS vai puxar o primeiro card para cima, 
+ e como a seção agora tem o z-index correto, ele vai 
+ sobrepor a seção #master-steps-section.
+*/
+
+/* ==========================================================
+10.19. Página Master - Intro (Mobile) - ATUALIZADO
+========================================================== */
+
+#master-intro-section {
+ /* w375 h703 */
+ height: 703px;
+ position: relative;
+ overflow: hidden;
+ width: 100%;
+ margin: 0;
+ /* Desliga animações desktop */
+ transform: none !important;
+ opacity: 1 !important;
+}
+
+/* Artboard invisível de 375px para centralizar */
+#master-intro-section::before {
+ content: '';
+ display: block;
+ width: 100%;
+ max-width: 375px;
+ height: 100%;
+ position: absolute;
+ left: 50%;
+ top: 0;
+ transform: translateX(-50%);
+ z-index: 0;
+}
+
+/* Desliga animações de todos os filhos */
+#master-intro-section > * {
+ transform: none !important;
+ opacity: 1 !important;
+ z-index: 1; /* Garante que fiquem sobre o ::before */
+}
+
+.master-intro-title {
+ /* w303 h33 x24 y40 */
+ position: absolute;
+ left: calc(50% - 187.5px + 24px);
+ top: 40px;
+ width: 303px; /* <-- LARGURA ATUALIZADA DA SPEC */
+ height: auto; /* Altura flui com o texto */
+ font-size: 28px;
+ font-weight: 700;
+ font-style: italic;
+}
+
+.master-intro-lines {
+ /* w32 h30.01 x343 y41 - Alinhado à margem direita de 24px */
+ position: absolute;
+ left: auto; /* <-- REMOVIDO */
+ right: calc(50% - 187.5px + 24px); /* <-- ADICIONADO: Alinha à margem de conteúdo direita */
+ top: 41px;
+ width: 32px;
+ height: 30.01px;
+ content: url('assets/images/master/title-lines-mobile.svg');
+}
+
+.master-intro-illustration {
+ /* w375 h203 x0 y258 - Agora responsivo */
+ position: absolute;
+ left: 0; /* <-- ALTERADO: Alinha à borda da tela */
+ top: 258px;
+ width: 100%; /* <-- ALTERADO: Ocupa 100% da largura da tela */
+ height: 203px; /* Altura fixa da spec */
+ content: url('assets/images/master/illustration-mobile.svg');
+ object-fit: cover; /* <-- ADICIONADO: Garante que cubra a área */
+}
+
+/* Reseta o container de texto do desktop */
+.master-intro-text-content {
+ position: static;
+ display: contents; /* Faz os <p> filhos agirem como filhos diretos da section */
+}
+
+.master-intro-headline {
+ /* w261 h102 x24 y113 */
+ position: absolute;
+ left: calc(50% - 187.5px + 24px);
+ top: 113px;
+ width: 261px;
+ height: auto; /* Altura flui com o texto */
+ flex-basis: auto; /* Reseta desktop */
+ font-size: 28px;
+ font-weight: 300;
+ font-style: italic;
+ line-height: 1.2;
+}
+
+.master-intro-description {
+ /* w327 h99 x24 y501 */
+ position: absolute;
+ left: calc(50% - 187.5px + 24px);
+ top: 501px;
+ width: 327px;
+ height: auto; /* Altura flui com o texto */
+ flex-basis: auto; /* Reseta desktop */
+ font-size: 16px;
+ font-weight: 700;
+ line-height: 1.4;
+}
+/* ==========================================================
+ 10.20. Página Master - Steps (Mobile) - CORRIGIDO
+ ========================================================== */
+
+#master-steps-section {
+  height: 1472px;
+  width: 100%;
+  background-color: var(--color-white); 
+  position: relative;
+  /*     ATUALIZADO: z-index: 1 para ficar ABAIXO da seção de vídeo.
+    overflow: visible para o item "Aprovar" (top: -55px) 
+    vazar para CIMA da seção #master-intro-section.
+  */
+  z-index: 1; 
+  overflow: visible; 
+  margin: 0;
+  /*     ADICIONADO: Padding para criar espaço para o card de vídeo 
+    que vai sobrepor esta seção por baixo.
+  */
+  padding-bottom: 280px;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* Artboard invisível de 375px para centralizar */
+#master-steps-section::before {
+  content: '';
+  display: block;
+  width: 100%;
+  max-width: 375px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Desliga animações de todos os filhos */
+#master-steps-section > * {
+  transform: none !important;
+  opacity: 1 !important;
+  z-index: 1;
+}
+
+/* --- Itens de Passo (Aprovar, Validar, Garantir) --- */
+.master-step-item {
+  position: absolute;
+  left: calc(50% - 187.5px + 122px);
+  top: -55px; /* <-- Esta é a sobreposição do "Aprovar" */
+  width: 133px;
+  height: 202px;
+  display: block; 
+  text-align: center;
+  z-index: 2; /* Garante que os itens fiquem acima do conteúdo da seção */
+}
+/* ... (restante dos estilos de .master-step-item--2, --3, etc., permanecem iguais) ... */
+.master-step-item--2 {
+  left: calc(50% - 187.5px + 101px);
+  top: 183px;
+  width: 174px;
+  height: 202px;
+}
+.master-step-item--3 {
+  left: calc(50% - 187.5px + 65px);
+  top: 421px;
+  width: 246px;
+  height: 226px;
+}
+.master-step-icon {
+  position: absolute;
+  left: 11.36px;
+  top: 0;
+  width: 110.27px;
+  height: 111px;
+  margin-bottom: 0; 
+}
+.master-step-item--2 .master-step-icon,
+.master-step-item--3 .master-step-icon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 110.27px;
+  height: 111px;
+}
+.master-step-text {
+  position: absolute;
+  left: 0;
+  top: 127px;
+  width: 133px;
+  height: auto; 
+}
+.master-step-item--2 .master-step-text,
+.master-step-item--3 .master-step-text {
+  width: 100%; 
+  left: 0;
+  top: 127px;
+}
+.master-step-text h3 {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 4px; 
+}
+.master-step-text p {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.3;
+}
+.master-steps-lines {
+  position: absolute;
+  top: 650px;
+  width: 351.87px;
+  height: 30.01px;
+  content: url('assets/images/master/decorative-lines-mobile.svg');
+}
+.master-steps-illustration {
+  position: absolute;
+  top: 690px;
+  width: 345.5px;
+  height: 307px;
+  content: url('assets/images/master/illustration-2-mobile.svg');
+}
+.master-steps-text-content {
+  position: absolute;
+  left: calc(50% - 187.5px + 24px);
+  top: 1080px;
+  width: 328px;
+}
+.master-steps-headline {
+  width: 100%; 
+  height: auto;
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 300; 
+  line-height: 1.2; 
+  margin-bottom: 16px; 
+}
+.master-steps-description {
+  width: 100%; 
+  height: auto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4; 
+}
+
+
 }

@@ -12,11 +12,15 @@
 </head>
 <body>
 
+<div class="page-wrapper">
+
     <header class="main-header">
         <nav class="navbar">
             <a href="index.html" class="navbar-logo">
-                <img src="assets/images/common/logo.svg" alt="Logo Parceria Premiada">
+                <img src="assets/images/common/logo.svg" alt="Logo Parceria Premiada" class="logo-desktop">
+                <img src="assets/images/common/logomobile.svg" alt="Logo Parceria Premiada" class="logo-mobile">
             </a>
+            
             <div class="navbar-links">
                 <img src="assets/images/common/nav-separator.svg" alt="Separador" class="nav-separator">
                 <a href="index.html">Início</a>
@@ -27,6 +31,11 @@
                 <img src="assets/images/common/nav-separator.svg" alt="Separador" class="nav-separator">
                 <a href="login.html">Login</a>
             </div>
+
+            <button class="mobile-nav-toggle" aria-label="Abrir menu">
+                <img src="assets/images/common/toggle.svg" alt="Abrir menu" class="icon-toggle">
+            </button>
+            
         </nav>
     </header>
 
@@ -95,6 +104,37 @@
                     
                 </div>
             </div>
+        </section>
+
+        <section id="ctv-steps-section-mobile">
+            <div class="ctv-steps-scroll-container-mobile">
+                <div class="timeline-canvas-mobile">
+                    
+                    <div class="timeline-green-line-mobile"></div>
+
+                    <p class="timeline-text-top-mobile step-1">Lançamos as campanhas da safra na plataforma.</p>
+                    <img class="timeline-icon-mobile step-1" src="assets/images/how-it-works/icon-1.svg" alt="">
+                    <p class="timeline-text-bottom-mobile step-1">Início da Safra</p>
+
+                    <p class="timeline-text-top-mobile step-2">Você aceita as campanhas e aponta as notas das suas vendas.</p>
+                    <img class="timeline-icon-mobile step-2" src="assets/images/how-it-works/icon-2.svg" alt="">
+
+                    <p class="timeline-text-top-mobile step-3">O Master avalia as notas apontadas e faz o acompanhamento.</p>
+                    <img class="timeline-icon-mobile step-3" src="assets/images/how-it-works/icon-3.svg" alt="">
+                    
+                    <p class="timeline-text-top-mobile step-4">Você acompanha o seu dinheiro ao longo da safra.</p>
+                    <img class="timeline-icon-mobile step-4" src="assets/images/how-it-works/icon-4.svg" alt="">
+
+                    <p class="timeline-text-top-mobile step-5">Ao final da safra e após apuração você terá o seu benefício liberado.</p>
+                    <img class="timeline-icon-mobile step-5" src="assets/images/how-it-works/icon-5.svg" alt="">
+
+                    <p class="timeline-text-top-mobile step-6">Prêmio disponível para resgate</p>
+                    <img class="timeline-icon-mobile step-6" src="assets/images/how-it-works/icon-6.svg" alt="">
+                    <p class="timeline-text-bottom-mobile step-6">Final da Safra</p>
+                    
+                </div>
+            </div>
+            <img class="timeline-drag-indicator-mobile" src="assets/images/how-it-works/arraste-verde-mobile.svg" alt="Arraste para o lado">
         </section>
 
         <section id="ctv-attention-section">
@@ -289,7 +329,8 @@
     </main>
 
     <a href="#" class="back-to-top-button">
-        <img src="assets/images/common/back-to-top.svg" alt="Voltar ao topo">
+        <img src="assets/images/common/back-to-top.svg" alt="Voltar ao topo" class="img-desktop">
+        <img src="assets/images/common/back-to-top-mobile.svg" alt="Voltar ao topo" class="img-mobile">
     </a>
 
     <div id="video-popup" class="video-popup-overlay">
@@ -302,8 +343,22 @@
         </div>
     </div>
 
-<script>
+</div> <script>
     document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- SCRIPT DO MENU MOBILE (Reutilizado da Index) ---
+        const toggleButton = document.querySelector('.mobile-nav-toggle');
+        const header = document.querySelector('.main-header');
+        const body = document.querySelector('body');
+        const html = document.documentElement;
+        if (toggleButton && header && body && html) {
+            toggleButton.addEventListener('click', () => {
+                header.classList.toggle('menu-is-open');
+                body.classList.toggle('menu-is-open'); 
+                html.classList.toggle('menu-is-open');
+            });
+        }
+        
         // --- Script da Timeline ---
         const track = document.querySelector('.ctv-steps-scroll-track');
         const stickyContainer = document.querySelector('.ctv-steps-sticky-container');
@@ -316,15 +371,32 @@
                 const timelineWidth = timeline.scrollWidth;
                 const containerWidth = stickyContainer.clientWidth;
                 const maxMove = Math.max(0, timelineWidth - containerWidth);
-                const totalScroll = track.scrollHeight - window.innerHeight;
-                const scrollPassed = Math.min(Math.max(0, -trackRect.top), totalScroll);
-                const progress = scrollPassed / totalScroll;
+                
+                // Corrige o cálculo para parar no final do scroll
+                const trackScrollableHeight = track.scrollHeight - stickyContainer.clientHeight;
+                const stickyTop = trackRect.top;
+                
+                let progress = 0;
+                if (stickyTop < 0) {
+                     // Quanto já rolamos dentro da "track" (0 a trackScrollableHeight)
+                    const scrollPassed = Math.min(Math.max(0, -stickyTop), trackScrollableHeight);
+                    if (trackScrollableHeight > 0) {
+                         progress = scrollPassed / trackScrollableHeight;
+                    }
+                }
+
+                // Garante que o progresso vá de 0 a 1
+                progress = Math.min(1, Math.max(0, progress));
+
                 timeline.style.transform = `translateX(-${progress * maxMove}px)`;
                 progressLine.style.width = `${progress * 100}%`;
             }
             function updateTrackHeight() {
-                const totalScrollable = Math.max(0, timeline.scrollWidth - stickyContainer.clientWidth);
-                const desiredHeight = totalScrollable + window.innerHeight;
+                // Define a altura da track baseada em quanto precisa rolar
+                const totalScrollableWidth = Math.max(0, timeline.scrollWidth - stickyContainer.clientWidth);
+                // Damos "espaço de scroll" (ex: 300vh) para o movimento acontecer
+                // Ajustar '300 * window.innerHeight / 100' (ou 300vh) se a animação parecer muito rápida/lenta
+                const desiredHeight = totalScrollableWidth + (300 * window.innerHeight / 100); 
                 track.style.height = `${desiredHeight}px`;
             }
             function initTimeline() {
@@ -341,7 +413,7 @@
         const popup = document.getElementById('video-popup');
         const closeBtn = document.querySelector('.video-popup-close-button');
         const videoContainer = document.getElementById('video-popup-player-container');
-        const body = document.body;
+        // const body = document.body; (Já declarado)
 
         if (!popup || videoTriggers.length === 0) {
             console.error("ERRO: O popup ou os cards de vídeo não foram encontrados no HTML.");
@@ -353,11 +425,21 @@
                 return (match && match[1]) ? match[1] : null;
             }
 
-            const openPopup = (videoSource) => {
+            const openPopup = (trigger) => {
+                const videoSource = trigger.dataset.videoSource;
+                if (!videoSource) {
+                     console.warn("AVISO: Popup não abriu porque a URL do vídeo está vazia.");
+                     return;
+                }
+
                 const youtubeId = getYouTubeId(videoSource);
                 let thumbnailUrl = '';
-
-                if (youtubeId) {
+                
+                // Tenta pegar a thumbnail do próprio card
+                const thumbnailImg = trigger.querySelector('.video-thumbnail');
+                if (thumbnailImg) {
+                    thumbnailUrl = thumbnailImg.src;
+                } else if (youtubeId) {
                     thumbnailUrl = `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
                 }
 
@@ -391,12 +473,7 @@
             videoTriggers.forEach(trigger => {
                 trigger.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const videoUrl = trigger.dataset.videoSource;
-                    if (videoUrl) {
-                        openPopup(videoUrl);
-                    } else {
-                        console.warn("AVISO: Popup não abriu porque a URL do vídeo está vazia.");
-                    }
+                    openPopup(trigger);
                 });
             });
 
@@ -406,7 +483,7 @@
         }
 
 
-        // --- Script para o BOTÃO VOLTAR AO TOPO ---
+        // --- Script para o BOTÃO VOLTAR AO TOPO (Reutilizado da Index) ---
         const backToTopButton = document.querySelector('.back-to-top-button');
         if (backToTopButton) {
             backToTopButton.addEventListener('click', (e) => {
@@ -417,7 +494,8 @@
             let lastScrollTop = 0;
             window.addEventListener('scroll', () => {
                 let currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-                if (currentScrollTop > window.innerHeight / 2) {
+                // Ajustado para '/ 2' para aparecer mais cedo, como no seu original
+                if (currentScrollTop > window.innerHeight / 2) { 
                     if (currentScrollTop < lastScrollTop) {
                         backToTopButton.classList.add('visible');
                     } else {
@@ -431,7 +509,7 @@
         }
 
 
-        // --- LÓGICA PARA ANIMAÇÃO DE SURGIMENTO DAS SEÇÕES ---
+        // --- LÓGICA PARA ANIMAÇÃO DE SURGIMENTO DAS SEÇÕES (Reutilizado da Index) ---
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -447,7 +525,7 @@
             });
         }, observerOptions);
 
-        // ATUALIZADO: Seleciona TODAS as seções que devem ser animadas (exceto ctv-steps-section)
+        // ATUALIZADO: Seleciona TODAS as seções que devem ser animadas
         const sectionsToAnimate = document.querySelectorAll(
             '#ctv-intro-section, #ctv-attention-section, #ctv-learn-section, #ctv-videos-section, #master-intro-section, #master-steps-section, #master-videos-section, #site-footer'
         );
