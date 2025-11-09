@@ -243,7 +243,8 @@ h1, h2, h3, h4, p {
 .horizontal-scroll-wrapper, 
 .drag-indicator,
 .join-bottom-image,
-.registered-app-image-mobile { /* <-- ADICIONE ESTA LINHA */
+.registered-app-image-mobile,
+.back-to-top-button .img-mobile { /* <-- ADICIONE ESTA LINHA */
     display: none;
 }
 /* Mostra elementos desktop no DESKTOP */
@@ -255,7 +256,8 @@ h1, h2, h3, h4, p {
 #what-is-section .img-desktop,
 .cta-button .button-desktop,
 #how-to-join-section .img-desktop,
-.registered-app-image { /* <-- ADICIONE ESTA LINHA */
+.registered-app-image,
+.back-to-top-button .img-desktop { /* <-- ADICIONE ESTA LINHA */
     display: block; 
 }
 
@@ -1852,4 +1854,41 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
     line-height: 1.4;
     order: 4; /* Ordem visual #4 (último item) */
   }
+
+  /* ==========================================================
+10.12. Botão Voltar ao Topo (Mobile)
+========================================================== */
+
+.back-to-top-button .img-desktop {
+display: none;
+}
+
+.back-to-top-button .img-mobile {
+display: block;
+width: 100%; /* 172px */
+height: 100%; /* 36px */
+}
+
+.back-to-top-button {
+/* Posição e Tamanho */
+width: 172px;
+height: 36px;
+top: auto;
+right: auto;
+bottom: 24px; /* Distância do fundo */
+left: 50%;
+
+/* Animação (Início) - Escondido em baixo */
+/* O JS vai remover a classe .visible ao rolar para baixo, 
+ e este 'transform' vai fazê-lo deslizar para baixo e sumir */
+transform: translateX(-50%) translateY(100px); 
+transition: all 0.3s ease-in-out;
+}
+
+.back-to-top-button.visible {
+/* Animação (Fim) - Visível no centro */
+/* O JS adiciona a classe .visible ao rolar para cima,
+e este 'transform' faz ele deslizar para cima */
+transform: translateX(-50%) translateY(0);
+}
 } 
