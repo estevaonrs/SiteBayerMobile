@@ -2661,5 +2661,138 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
   height: clamp(60px, 15vw, 80px);
 }
 
+/* ==========================================================
+ 10.22. Página FAQ (faq.html)
+ ========================================================== */
+
+#faq-section {
+width: 100%;
+position: static; 
+padding: 0 0 40px 0; /* Padding inferior, remove o superior */
+overflow: hidden;
+}
+
+.faq-title-group {
+position: relative; /* Contexto para posições absolutas */
+width: 100%;
+height: 81px; /* Altura para conter os elementos (y:42 + h:30 = 72) */
+margin: 0 auto;
+padding: 0; /* Remove padding, usamos 'left' nos filhos */
+box-sizing: border-box;
+top: 1px;
+}
+
+.faq-title {
+/* Coordenadas exatas */
+position: absolute;
+width: 67px;
+height: 41px;
+left: 24px;
+top: 36px;
+
+/* Estilos exatos */
+font-size: 36px;
+font-weight: 700;
+font-style: italic;
+line-height: 1; /* Ajusta a altura da linha */
+}
+
+.faq-title-lines {
+/* Coordenadas exatas */
+position: absolute;
+width: 268px;
+height: 30.01px;
+left: 147px;
+top: 42px;
+/* Troca a imagem para a versão mobile */
+content: url('assets/images/faq/title-lines-mobile.svg');
+max-width: none; /* Remove o max-width anterior */
+}
+
+.faq-subtitle {
+display: none; /* Esconde o subtítulo */
+}
+
+.faq-content-wrapper {
+position: static; 
+padding-top: 40px; /* Espaço após o grupo de título */
+width: 100%;
+max-width: 375px; 
+margin: 0 auto;
+padding-left: 24px;
+padding-right: 24px;
+box-sizing: border-box;
+}
+
+.faq-category {
+margin-bottom: 32px;
+}
+
+.faq-category-header {
+padding-bottom: 12px;
+margin-bottom: 12px;
+}
+
+.faq-category-header h3 {
+font-size: 22px;
+font-weight: 300;
+font-style: italic;
+}
+
+.faq-question {
+padding: 16px 0; 
+}
+
+.faq-question p {
+font-size: 18px; 
+font-weight: 700;
+line-height: 1.4;
+padding-right: 16px; 
+}
+
+.faq-icon-container {
+width: 24px; 
+height: 24px;
+flex-shrink: 0;
+}
+
+.faq-answer p {
+font-size: 16px; 
+font-weight: 400;
+line-height: 1.5;
+padding-top: 8px;
+padding-bottom: 24px;
+}
+
+/* --- ESTILOS DO BOTÃO 'VOLTAR AO TOPO' (Agora com HTML correto) --- */
+.back-to-top-button {
+width: 172px;
+height: 36px;
+top: auto;
+right: auto;
+bottom: 24px;
+left: 50%;
+transform: translateX(-50%) translateY(100px);
+transition: all 0.3s ease-in-out;
+
+/* Remove o hack do background */
+background-image: none; 
+}
+
+/* Esconde a <img> desktop e mostra a <img> mobile */
+.back-to-top-button .img-desktop {
+display: none; 
+}
+.back-to-top-button .img-mobile {
+display: block; 
+width: 100%;
+height: 100%;
+}
+
+.back-to-top-button.visible {
+transform: translateX(-50%) translateY(0);
+}
 
 }
+
+

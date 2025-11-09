@@ -15,8 +15,10 @@
     <header class="main-header">
         <nav class="navbar">
             <a href="index.html" class="navbar-logo">
-                <img src="assets/images/common/logo.svg" alt="Logo Parceria Premiada">
+                <img src="assets/images/common/logo.svg" alt="Logo Parceria Premiada" class="logo-desktop">
+                <img src="assets/images/common/logomobile.svg" alt="Logo Parceria Premiada" class="logo-mobile">
             </a>
+            
             <div class="navbar-links">
                 <img src="assets/images/common/nav-separator.svg" alt="Separador" class="nav-separator">
                 <a href="index.html">Início</a>
@@ -27,6 +29,11 @@
                 <img src="assets/images/common/nav-separator.svg" alt="Separador" class="nav-separator">
                 <a href="login.html">Login</a>
             </div>
+
+            <button class="mobile-nav-toggle" aria-label="Abrir menu">
+                <img src="assets/images/common/toggle.svg" alt="Abrir menu" class="icon-toggle">
+            </button>
+            
         </nav>
     </header>
 
@@ -152,7 +159,8 @@
     
     
     <a href="#" class="back-to-top-button">
-        <img src="assets/images/common/back-to-top.svg" alt="Voltar ao topo">
+        <img src="assets/images/common/back-to-top.svg" alt="Voltar ao topo" class="img-desktop">
+        <img src="assets/images/common/back-to-top-mobile.svg" alt="Voltar ao topo" class="img-mobile">
     </a>
 
 <script>
@@ -223,6 +231,22 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.toggle('active');
         });
     });
+
+    // --- LÓGICA DO MENU MOBILE (ATUALIZADO 2.0) ---
+        const toggleButton = document.querySelector('.mobile-nav-toggle');
+        const header = document.querySelector('.main-header');
+        const body = document.querySelector('body');
+        const html = document.documentElement; // 1. Seleciona o <html>
+
+        if (toggleButton && header && body && html) { // 2. Verifica o <html>
+            toggleButton.addEventListener('click', () => {
+                // Adiciona ou remove a classe em TUDO
+                header.classList.toggle('menu-is-open');
+                body.classList.toggle('menu-is-open'); 
+                html.classList.toggle('menu-is-open'); // 3. Trava a rolagem no HTML também
+            });
+        }
+
 });
 </script>
 </body>
