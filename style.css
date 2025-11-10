@@ -284,7 +284,6 @@ h1, h2, h3, h4, p {
 
 /* Re-estiliza o botão do herói para ser absoluto DENTRO do slide */
 .hero-button {
-   width: 25.27%; 
    position: absolute; 
    z-index: 10; 
    left: 50%; 
