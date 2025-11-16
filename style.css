@@ -2981,10 +2981,11 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
    ========================================================== */
 
     #already-registered-section {
-        height: auto;
+        height: 750px; /* NOVO: Altura fixa (você pode ajustar este valor) */
         overflow: visible;
         padding-top: 48px;
         z-index: 2;
+        position: relative; /* NOVO: Essencial para o position: absolute funcionar */
     }
 
     .registered-app-image.img-desktop {
@@ -3049,15 +3050,16 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
 
     .registered-app-image-mobile.img-mobile {
         display: block;
-        position: relative;
+        position: absolute; /* MODIFICADO */
         width: 100%;
-        /* Otimizado: Removido height fixo. Deixa a imagem ter sua altura natural */
-        margin-top: 40px;
+        max-width: 375px; /* NOVO: Para alinhar com o "artboard" */
+        margin-top: 0; /* MODIFICADO: Removemos a margem */
         z-index: 3;
         object-fit: cover;
         object-position: top center;
         opacity: 1 !important;
-        /* Desliga animação de fade-in */
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     /* ==========================================================
@@ -3068,7 +3070,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         height: auto;
         overflow: hidden;
         /* Padding para compensar a imagem que "invade" de cima */
-        padding: 60px 0 40px 0;
+        padding: 80px 0 40px 0;
         box-sizing: border-box;
         z-index: 1;
     }
