@@ -2674,6 +2674,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         font-size: 16px;
         font-weight: 400;
         font-style: normal;
+        text-wrap: balance;
     }
 
     .step-by-step-buttons {
@@ -2870,7 +2871,6 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
 
     /* --- Posicionamento exato de cada SVG --- */
     #svg-retangulo {
-        width: 1598.93px;
         height: 94.35px;
         left: 44.07px;
         top: 12.41px;
