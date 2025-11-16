@@ -2591,7 +2591,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         }
 
         .what-is-lines.img-mobile {
-            left: calc(50% - 187.5px + 150px);
+            left: calc(50%);
         }
 
         .what-is-celular.img-mobile {
