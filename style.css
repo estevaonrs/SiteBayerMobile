@@ -1072,7 +1072,6 @@ p {
 }
 
 .registered-content h2 {
-    height: 9.375vw;
     font-weight: 300;
     font-style: italic;
     font-size: 3.75vw;
@@ -1082,7 +1081,6 @@ p {
 
 .registered-content h3 {
     width: 43.125vw;
-    height: 4.722vw;
     font-weight: 400;
     font-size: var(--font-size-lg);
     line-height: 1.2;
@@ -1091,7 +1089,6 @@ p {
 
 .registered-content .highlight-bold {
     width: 41.875vw;
-    height: 6.944vw;
     font-weight: 700;
     font-size: var(--font-size-lg);
     line-height: 1.2;
@@ -1100,7 +1097,6 @@ p {
 
 .registered-content p {
     width: 44.028vw;
-    height: 11.458vw;
     font-weight: 400;
     font-size: var(--font-size-lg);
     line-height: 1.2;
