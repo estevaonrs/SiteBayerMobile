@@ -441,7 +441,8 @@ p {
 .registered-app-image-mobile,
 .back-to-top-button .img-mobile,
 .scams-button .button-mobile,
-#ctv-steps-section-mobile {
+#ctv-steps-section-mobile,
+.master-intro-illustration.mobile-only {
     display: none;
 }
 
@@ -1554,6 +1555,14 @@ p {
     top: 20.127vw;
     left: 5.556vw;
     width: 88.889vw;
+}
+
+/* Estilo da imagem desktop */
+.master-intro-illustration.desktop-only {
+  position: absolute;
+  top: 20.127vw;
+  left: 5.556vw;
+  width: 88.889vw;
 }
 
 .master-intro-text-content {
@@ -3993,25 +4002,26 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         position: absolute;
         left: calc(92%);
         top: 41px;
-        width: 32px;
-        height: 30.01px;
+        width: auto;
         content: url('assets/images/master/title-lines-mobile.svg');
     }
 
-    .master-intro-illustration {
-        /* w375 h203 x0 y258 - Agora responsivo */
-        position: absolute;
-        left: 0;
-        /* <-- ALTERADO: Alinha à borda da tela */
-        top: 258px;
-        width: 100%;
-        /* <-- ALTERADO: Ocupa 100% da largura da tela */
-        height: 203px;
-        /* Altura fixa da spec */
-        content: url('assets/images/master/illustration-mobile.svg');
-        object-fit: cover;
-        /* <-- ADICIONADO: Garante que cubra a área */
+    /* Esconde a imagem desktop no mobile */
+    .master-intro-illustration.desktop-only {
+        display: none;
     }
+
+    /* Mostra e estiliza a imagem mobile */
+    .master-intro-illustration.mobile-only {
+    display: block; /* <-- IMPORTANTE */
+        position: absolute;
+    left: 0;
+    top: 258px;
+    width: 100%;
+    height: 203px;
+    object-fit: cover;
+  }
+
 
     /* Reseta o container de texto do desktop */
     .master-intro-text-content {
@@ -4305,7 +4315,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         left: 147px;
         top: 42px;
         /* Troca a imagem para a versão mobile */
-        content: url('assets/images/faq/title-lines-mobile.webp');
+        content: url('assets/images/faq/title-lines-mobile.svg');
         max-width: none;
         /* Remove o max-width anterior */
     }
