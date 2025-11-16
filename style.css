@@ -2292,7 +2292,6 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
 
     .navbar-links a[href="index.html"] {
         display: flex; /* MODIFICADO: de 'none' para 'flex' para exibir o link */
-        order: 1;      /* NOVO: Joga o item "Início" para o final da lista de links */
     }
 
     .navbar-links a::before {
