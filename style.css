@@ -443,7 +443,8 @@ p {
 .scams-button .button-mobile,
 #ctv-steps-section-mobile,
 .master-intro-illustration.mobile-only,
-.ctv-intro-lines-mobile{
+.ctv-intro-lines-mobile,
+.learn-decorative-lines-mobile {
   display: none;
 }
 
@@ -3737,12 +3738,11 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
     height: 1000px;
     width: 100%;
     position: relative;
-    overflow: visible !important;
     /* <-- ADICIONE ESTA LINHA */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 49px 24px 0 24px;
+    padding: 10px 24px 0 24px;
     padding-bottom: 280px;
     /* <-- SEU PADDING */
     box-sizing: border-box;
@@ -3804,14 +3804,24 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
     /* font-weight: 300; (Já herdado) */
     text-align: left;
     /* Alinha o texto na caixa */
+    margin-bottom: 20px;
   }
 
   .learn-decorative-lines {
-    position: relative;
+    display: none;
+  }
+
+  .learn-decorative-lines-mobile {
+    display: block;
+  }
+
+
+  .learn-decorative-lines-mobile {
+    position: absolute;
     width: 184px;
     height: 25.06px;
-    left: 165px;
-    top: auto;
+    left: 240px;
+    top: 70px;
     /* (y:90) - (y:49 + h:66) = ~ -25px.
    Isso significa que ele sobrepõe.
    Vamos usar margin-top negativo e alinhar à direita */
