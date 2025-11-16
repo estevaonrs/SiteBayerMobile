@@ -2981,9 +2981,9 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
    ========================================================== */
 
     #already-registered-section {
-        height: 750px; /* NOVO: Altura fixa (você pode ajustar este valor) */
+        height: 800px; /* NOVO: Altura fixa (você pode ajustar este valor) */
         overflow: visible;
-        padding-top: 48px;
+        padding-top: 36px;
         z-index: 2;
         position: relative; /* NOVO: Essencial para o position: absolute funcionar */
     }
@@ -3001,7 +3001,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         width: 100%;
         max-width: 375px;
         margin: 0 auto;
-        padding: 0 24px;
+        padding: 0 24px 40px;
         box-sizing: border-box;
         /* Otimizado: Removido 'height: 200px' fixo. */
         height: auto;
@@ -3069,7 +3069,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         height: auto;
         overflow: hidden;
         /* Padding para compensar a imagem que "invade" de cima */
-        padding: 80px 0 40px 0;
+        padding: 95px 0 40px 0;
         box-sizing: border-box;
         z-index: 1;
     }

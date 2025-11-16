@@ -377,8 +377,8 @@
     // --- SCRIPT DO PRELOADER ---
     const preloader = document.getElementById('preloader');
     
-    // 'load' espera por TUDO (imagens, etc.) carregar
-    window.addEventListener('load', () => {
+    // 'DOMContentLoaded' espera apenas pelo HTML/CSS (MUITO MAIS RÁPIDO)
+    document.addEventListener('DOMContentLoaded', () => { // <--- CORREÇÃO
         if (preloader) {
             preloader.classList.add('hidden');
         }
