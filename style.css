@@ -38,6 +38,9 @@ body {
    overflow-x: hidden;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 /* ATUALIZADO: Trava o scroll quando o menu mobile está aberto */
 body.modal-open,
 html.menu-is-open,
@@ -217,17 +220,18 @@ h1, h2, h3, h4, p {
 .social-icons-list a img { width: 4.418vw; }
 
 .back-to-top-button {
-   position: fixed;
-   width: 11.91vw;
-   height: 2.778vw;
-   top: 3.264vw;
-   right: 5.59vw;
-   z-index: 1000;
-   visibility: hidden;
-   opacity: 0;
-   transform: translateY(-1.389vw);
-   transition: all 0.3s ease-in-out;
+ position: fixed;
+ width: 11.91vw;
+ height: 2.778vw;
+ bottom: 3.264vw; /* <-- MUDANÇA 1: Trocado de 'top' para 'bottom' */
+ right: 5.59vw;
+ z-index: 1000;
+ visibility: hidden;
+ opacity: 0;
+ transform: translateY(1.389vw); /* <-- MUDANÇA 2: Removido o sinal negativo */
+ transition: all 0.3s ease-in-out;
 }
+
 .back-to-top-button.visible {
    visibility: visible;
    opacity: 1;
@@ -726,8 +730,14 @@ section:not(#avoid-scams-section) a:hover span {
    color: var(--color-accent-orange);
 }
 
+/* Sua regra original para SVG */
 section:not(#avoid-scams-section) a:hover img[src*="button-cta.svg"] {
-   content: url('assets/images/common/button-cta-2.svg');
+    content: url('assets/images/common/button-cta-2.svg');
+}
+
+/* A nova regra para WebP */
+section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
+    content: url('assets/images/common/button-cta-2.webp');
 }
 
 /* --- Efeito Específico para o botão na seção #avoid-scams-section --- */
@@ -2794,7 +2804,7 @@ height: 30.01px;
 left: 147px;
 top: 42px;
 /* Troca a imagem para a versão mobile */
-content: url('assets/images/faq/title-lines-mobile.svg');
+content: url('assets/images/faq/title-lines-mobile.webp');
 max-width: none; /* Remove o max-width anterior */
 }
 
