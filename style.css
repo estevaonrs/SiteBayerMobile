@@ -2302,7 +2302,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
     .navbar-links a::before {
         content: '';
         display: block;
-        background-image: url('assets/images/common/nav-separator.svg');
+        background-image: url('assets/images/common/nav-separator.webp');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -2396,7 +2396,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         width: 100%;
         margin: 0 auto;
         /* Centraliza o artboard */
-        padding: 20px 24px 0 24px;
+        padding: 20px 24px 0 0px;
         /* CORREÇÃO 5: Padding-top reduzido */
         box-sizing: border-box;
         height: auto;
@@ -2585,7 +2585,8 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         .what-is-title,
         .what-is-lines.img-mobile,
         .what-is-celular.img-mobile,
-        .what-is-description {
+        .what-is-description,
+        .intro-content {
             left: calc(50% - 187.5px + 24px);
         }
 
