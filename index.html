@@ -200,93 +200,49 @@
         </section>
 
         <section id="registration-steps-section">
-
             <div class="registration-scroll-container">
-
                 <div class="registration-sticky-container">
-
                     <div class="registration-canvas">
-
                         <img src="assets/images/registration/number-1.svg" alt="Número 1" class="step-number step-number-1">
-
                         <img src="assets/images/registration/number-2.svg" alt="Número 2" class="step-number step-number-2">
-
                         <img src="assets/images/registration/number-3.svg" alt="Número 3" class="step-number step-number-3">
-
-
 
                         <div class="step-blue-bar"></div>
 
-
-
                         <div class="step-content step-content-1">
-
                             <p>Acesse o Site ou App</p>
-
                         </div>
-
-
 
                         <div class="step-content step-content-2">
-
                             <h3>Preencha seus dados:</h3>
-
                             <div class="list-columns">
-
                                 <ul>
-
                                     <li>• Nome completo</li>
-
                                     <li>• CPF</li>
-
                                     <li>• Data nascimento</li>
-
                                     <li>• CNPJ (Cooperativa/Distribuidora)</li>
-
                                 </ul>
-
                             </div>
-
                         </div>
-
-
 
                         <div class="step-content step-content-3">
-
                             <div class="text-column">
-
                                 <strong>CTV</strong> agora é só aguardar. Assim que o Master validar seu cadastro você será informado.
-
                             </div>
-
                             <div class="text-column">
-
                                 <strong>MASTER</strong> agora você precisa abrir um chamado no Converse Bayer e informar que é um Master.
-
                             </div>
-
                         </div>
-
-
 
                         <div class="step-content step-content-4">
-
                             <img src="assets/images/registration/white-bar.svg" alt="Barrinha branca" class="step-white-bar">
-
                             <img src="assets/images/registration/icon-attention.svg" alt="Atenção" class="step-attention-icon">
-
                             <p>Fique atento aos nossos comunicados, assim que liberarmos seu acesso, você será informado.</p>
-
                         </div>
 
-
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
         <section id="mobile-join-steps-section">
@@ -418,492 +374,248 @@
 
 <script>
 
-
-
     // --- SCRIPT DO PRELOADER ---
-
     const preloader = document.getElementById('preloader');
-
-   
-
+    
     // 'DOMContentLoaded' espera apenas pelo HTML/CSS (MUITO MAIS RÁPIDO)
-
     document.addEventListener('DOMContentLoaded', () => { // <--- CORREÇÃO
-
         if (preloader) {
-
             preloader.classList.add('hidden');
-
         }
-
     });
 
-
-
-   
-
+    
     document.addEventListener('DOMContentLoaded', () => {
-
         // --- LÓGICA DO CARROSSEL ---
-
         const slidesContainer = document.querySelector('.carousel-slides');
-
         const slides = document.querySelectorAll('.carousel-slide');
-
         const indicatorsContainer = document.querySelector('.carousel-indicators');
-
         let currentIndex = 0;
-
         let slideInterval;
 
-
-
         function goToSlide(index) {
-
             if (slidesContainer) {
-
                 slidesContainer.style.transform = `translateX(-${index * 100}%)`;
-
             }
-
             document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
-
             if (document.querySelectorAll('.dot')[index]) {
-
                 document.querySelectorAll('.dot')[index].classList.add('active');
-
             }
-
             currentIndex = index;
-
         }
-
-
 
         function createIndicators() {
-
             if (!indicatorsContainer) return;
-
             slides.forEach((_, index) => {
-
                 const dot = document.createElement('div');
-
                 dot.classList.add('dot');
-
                 dot.addEventListener('click', () => {
-
                     goToSlide(index);
-
                     resetInterval();
-
                 });
-
                 indicatorsContainer.appendChild(dot);
-
             });
-
         }
-
-       
-
+        
         function nextSlide() {
-
             const nextIndex = (currentIndex + 1) % slides.length;
-
             goToSlide(nextIndex);
-
         }
-
-
 
         function startInterval() {
-
             slideInterval = setInterval(nextSlide, 5000);
-
         }
-
-       
-
+        
         function resetInterval() {
-
             clearInterval(slideInterval);
-
             startInterval();
-
         }
-
-
 
         function initCarousel() {
-
             if (slides.length > 0) {
-
                 createIndicators();
-
                 goToSlide(0);
-
                 startInterval();
-
             }
-
         }
-
-       
-
+        
         initCarousel();
 
-
-
         // --- SCRIPT PARA O BOTÃO VOLTAR AO TOPO ---
-
         const backToTopButton = document.querySelector('.back-to-top-button');
-
         if (backToTopButton) {
-
             backToTopButton.addEventListener('click', (e) => {
-
                 e.preventDefault();
-
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-
             });
-
-
 
             let lastScrollTop = 0;
-
             window.addEventListener('scroll', () => {
-
                 let currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-
                 if (currentScrollTop > window.innerHeight) {
-
                     if (currentScrollTop < lastScrollTop) {
-
                         backToTopButton.classList.add('visible');
-
                     } else {
-
                         backToTopButton.classList.remove('visible');
-
                     }
-
                 } else {
-
                     backToTopButton.classList.remove('visible');
-
                 }
-
                 lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-
             });
-
         }
-
-
 
         // === INÍCIO DA LÓGICA DE "TRAVA" CORRIGIDA ===
 
-
-
         // --- LÓGICA DA ANIMAÇÃO DE SCROLL DA SEÇÃO "ETAPAS" (COM TRAVA) ---
-
         const registrationSection = document.querySelector('#registration-steps-section');
-
         const registrationCanvas = document.querySelector('.registration-canvas');
-
-       
-
+        
         // 1. Define os estados da animação
-
         // (O estado 0 é 'null', sem classe)
-
         const regStates = [null, 'state-2', 'state-3', 'state-4', 'state-5'];
-
         let currentRegStep = 0; // Começa no estado 0
-
         let isRegAnimating = false; // Flag para "cooldown" da animação
-
         let isUserInRegSection = false; // Flag para "travar" a rolagem
 
-
-
         if (registrationSection && registrationCanvas) {
-
-           
-
+            
             // 2. DETECTOR DE SCROLL: Apenas para saber se estamos na seção
-
             const handleScrollDetection = () => {
-
                 const rect = registrationSection.getBoundingClientRect();
-
                 const isSticky = rect.top <= 0 && rect.bottom > window.innerHeight;
 
-
-
                 // --- MUDANÇA IMPORTANTE AQUI ---
-
                 // Só atualiza o estado da trava SE não estivermos
-
                 // no meio de uma animação ou de uma saída.
-
                 if (!isRegAnimating) {
-
                     isUserInRegSection = isSticky;
 
-
-
                     // Se o usuário rolou para CIMA e saiu da seção, reseta a animação
-
                     if (rect.top > 0 && currentRegStep !== 0) {
-
                         currentRegStep = 0;
-
                         registrationCanvas.className = 'registration-canvas'; // Limpa todas as classes 'state-X'
-
                     }
-
                 }
-
             };
-
             window.addEventListener('scroll', handleScrollDetection);
 
-
-
             // 3. "TRAVADOR" DE ROLAGEM: Ouve o "wheel" (giro do mouse)
-
             const handleRegStepScroll = (event) => {
-
                 // Se não estivermos na seção, não faz nada (deixa rolar normal)
-
                 if (!isUserInRegSection) {
-
-                    return;
-
+                    return; 
                 }
-
-
 
                 // Se a animação anterior não terminou, trava a rolagem mas não avança
-
                 if (isRegAnimating) {
-
                     event.preventDefault();
-
                     return;
-
                 }
-
-
 
                 const scrollDirection = event.deltaY; // > 0 é para baixo, < 0 é para cima
 
-
-
                 // --- ROLANDO PARA BAIXO ---
-
                 if (scrollDirection > 0) {
-
                     if (currentRegStep < regStates.length - 1) { // Se NÃO for o último passo
-
                         event.preventDefault(); // TRAVA a rolagem da página
-
                         isRegAnimating = true;
-
                         currentRegStep++; // Avança o passo
-
-                       
-
+                        
                         registrationCanvas.className = 'registration-canvas ' + regStates[currentRegStep];
-
-                       
-
+                        
                         // Cooldown (tempo da sua animação CSS + um buffer)
-
                         // 500ms (transition) + 300ms (delay) = 800ms
-
-                        setTimeout(() => { isRegAnimating = false; }, 800);
-
-
+                        setTimeout(() => { isRegAnimating = false; }, 800); 
 
                     } else {
-
                         // --- CORREÇÃO DE SAÍDA ---
-
                         // Estamos no último passo e rolando para baixo
-
                         isRegAnimating = true; // Impede o detector de "re-travar"
-
                         isUserInRegSection = false; // Libera a trava
-
                         // NÃO usamos preventDefault(), então o scroll acontece
-
-                       
-
+                        
                         // Reseta a flag de animação logo após o scroll começar
-
-                        setTimeout(() => { isRegAnimating = false; }, 200);
-
+                        setTimeout(() => { isRegAnimating = false; }, 200); 
                     }
-
-               
-
+                
                 // --- ROLANDO PARA CIMA ---
-
-                } else if (scrollDirection < 0) {
-
+                } else if (scrollDirection < 0) { 
                     if (currentRegStep > 0) { // Se NÃO for o primeiro passo
-
                         event.preventDefault(); // TRAVA a rolagem da página
-
                         isRegAnimating = true;
-
                         currentRegStep--; // Volta o passo
-
-                       
-
+                        
                         // Aplica a classe anterior (ou nenhuma, se for o passo 0)
-
                         registrationCanvas.className = 'registration-canvas ' + (regStates[currentRegStep] || '');
-
-                       
-
+                        
                         // Cooldown
-
                         setTimeout(() => { isRegAnimating = false; }, 800);
 
-
-
                     } else {
-
                         // --- CORREÇÃO DE SAÍDA ---
-
                         // Estamos no primeiro passo e rolando para cima
-
                         isRegAnimating = true; // Impede o detector de "re-travar"
-
                         isUserInRegSection = false; // Libera a trava
-
                         // NÃO usamos preventDefault(), então o scroll acontece
 
-
-
                         // Reseta a flag de animação logo após o scroll começar
-
                         setTimeout(() => { isRegAnimating = false; }, 200);
-
                     }
-
                 }
-
             };
-
-           
-
+            
             // Adiciona o listener de "wheel" para o desktop
-
             // { passive: false } é ESSENCIAL para o event.preventDefault() funcionar
-
             window.addEventListener('wheel', handleRegStepScroll, { passive: false });
-
         }
-
-
 
         // === FIM DA LÓGICA DE "TRAVA" ===
 
 
-
-
-
         // --- LÓGICA PARA ANIMAÇÃO DE SURGIMENTO DAS SEÇÕES ---
-
         const observerOptions = {
-
             root: null,
-
             rootMargin: '0px',
-
-            threshold: 0.15
-
+            threshold: 0.15 
         };
 
-
-
         const observer = new IntersectionObserver((entries, observer) => {
-
             entries.forEach(entry => {
-
                 if (entry.isIntersecting) {
-
                     entry.target.classList.add('is-visible');
-
                     observer.unobserve(entry.target);
-
                 }
-
             });
-
         }, observerOptions);
 
-
-
         // ATUALIZADO: Seleciona TODAS as seções que devem ser animadas
-
         const sectionsToAnimate = document.querySelectorAll(
-
             '#introduction-section, #what-is-section, #how-to-join-section, #already-registered-section, #avoid-scams-section, #site-footer'
-
         );
-
-       
-
+        
         sectionsToAnimate.forEach(section => {
-
             if (section) {
-
                 observer.observe(section);
-
             }
-
         });
 
-
-
         // --- LÓGICA DO MENU MOBILE (ATUALIZADO 2.0) ---
-
         const toggleButton = document.querySelector('.mobile-nav-toggle');
-
         const header = document.querySelector('.main-header');
-
         const body = document.querySelector('body');
-
         const html = document.documentElement; // 1. Seleciona o <html>
 
-
-
         if (toggleButton && header && body && html) { // 2. Verifica o <html>
-
             toggleButton.addEventListener('click', () => {
-
                 // Adiciona ou remove a classe em TUDO
-
                 header.classList.toggle('menu-is-open');
-
-                body.classList.toggle('menu-is-open');
-
+                body.classList.toggle('menu-is-open'); 
                 html.classList.toggle('menu-is-open'); // 3. Trava a rolagem no HTML também
-
             });
-
         }
 
-
-
     });
-
 </script>
     
 </body>
