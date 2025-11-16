@@ -3444,14 +3444,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
     .ctv-intro-illustration {
         width: 350px;
         height: 394px;
-        left: calc(50% - 187.5px + 25px);
         top: 274px;
-        right: auto;
-        /*     ATUALIZADO: 
-    z-index: 3 já estava correto e garante que esta 
-    imagem se sobreponha ao grupo de título (z-index: 2) 
-    e ao conteúdo (z-index: 2).
-  */
         z-index: 3;
         content: url('assets/images/how-it-works/ctv-illustration-mobile.svg');
         transform: none !important;
@@ -3520,6 +3513,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         line-height: 1.2;
         margin: 0;
         padding: 0;
+        text-wrap: balance;
     }
 
     /* 6. A Linha Verde (HORIZONTAL) */
@@ -3729,8 +3723,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
    ========================================================== */
 
     #ctv-learn-section {
-        height: auto;
-        min-height: 0;
+        height: 1000px;
         width: 100%;
         position: relative;
         overflow: visible !important;
@@ -3770,15 +3763,14 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
 
     /* 3. Coloca a Ilustração DEPOIS */
     .learn-illustration {
-        position: static;
+        position: absolute;
         width: 100%;
         max-width: 350px;
         /* w350 */
         height: auto;
-        left: auto;
         top: auto;
         /* (y:346) - (y:263 + h:48) = ~35px de margem */
-        margin-top: 35px;
+        margin-top: 290px;
         order: 2;
         /* <-- Ordem #2 */
         content: url('assets/images/how-it-works/learn-illustration-mobile.svg');
@@ -3850,7 +3842,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         position: relative;
         z-index: 2;
         /* Fica NA FRENTE */
-        margin-top: -120px;
+        margin-top: -80px;
     }
 
     /* O "container" vira o wrapper de 327px */
