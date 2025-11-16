@@ -1447,11 +1447,12 @@ p {
 }
 
 #ctv-videos-section {
-    width: 100%;
-    height: 100.208vw;
-    background-color: var(--color-accent-green);
-    position: relative;
-    z-index: 0;
+  width: 100%;
+  height: auto; /* <-- MUDANÇA */
+  background-color: var(--color-accent-green);
+  position: relative;
+  z-index: 0;
+  padding-bottom: 20vw; /* <-- MUDANÇA: Garante espaço no final */
 }
 
 .video-card {
@@ -1685,11 +1686,12 @@ p {
 }
 
 #master-videos-section {
-    width: 100%;
-    height: 62.778vw;
-    background-color: var(--color-master-blue);
-    position: relative;
-    z-index: 0;
+  width: 100%;
+  height: auto; /* <-- MUDANÇA */
+  background-color: var(--color-master-blue);
+  position: relative;
+  z-index: 0;
+  padding-bottom: 20vw; /* <-- MUDANÇA: Garante espaço no final */
 }
 
 /* A seção master-videos herda os estilos de posicionamento de .video-card--X */
