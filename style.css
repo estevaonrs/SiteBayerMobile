@@ -3991,10 +3991,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
     .master-intro-lines {
         /* w32 h30.01 x343 y41 - Alinhado à margem direita de 24px */
         position: absolute;
-        left: auto;
-        /* <-- REMOVIDO */
-        right: calc(50% - 187.5px + 1px);
-        /* <-- ADICIONADO: Alinha à margem de conteúdo direita */
+        left: calc(92%);
         top: 41px;
         width: 32px;
         height: 30.01px;
@@ -4178,15 +4175,14 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
 
     .master-steps-lines {
         position: absolute;
-        top: 650px;
+        top: 680px;
         width: 351.87px;
-        height: 30.01px;
         content: url('assets/images/master/decorative-lines-mobile.svg');
     }
 
     .master-steps-illustration {
         position: absolute;
-        top: 690px;
+        top: 730px;
         width: 345.5px;
         height: 307px;
         content: url('assets/images/master/illustration-2-mobile.svg');
