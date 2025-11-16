@@ -3447,7 +3447,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         height: 394px;
         top: 274px;
         z-index: 3;
-        content: url('assets/images/how-it-works/ctv-illustration-mobile.svg');
+        content: url('assets/images/how-it-works/ctv-illustration-mobile.webp');
         transform: none !important;
         opacity: 1 !important;
     }
@@ -3774,7 +3774,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         margin-top: 290px;
         order: 2;
         /* <-- Ordem #2 */
-        content: url('assets/images/how-it-works/learn-illustration-mobile.svg');
+        content: url('assets/images/how-it-works/learn-illustration-mobile.webp');
         transform: none !important;
         opacity: 1 !important;
     }
