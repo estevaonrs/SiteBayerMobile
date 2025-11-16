@@ -3489,32 +3489,32 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
 
   /* 3. O container que permite o scroll */
   .ctv-steps-scroll-container-mobile {
-    width: 100%;
-    height: 329px;
-    /* h329 (do "timeline-wrapper") */
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    flex-shrink: 0;
-  }
+  width: 100%;
+  height: 329px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex-shrink: 0;
+  
+  /* --- ADICIONE ESTAS 2 LINHAS --- */
+  padding-right: calc(50% - 44px); /* (Metade da tela - metade do ícone) */
+  box-sizing: border-box;
+}
 
   .ctv-steps-scroll-container-mobile::-webkit-scrollbar {
     display: none;
   }
 
   /* 4. O "artboard" gigante que rola */
-  .timeline-canvas-mobile {
-    width: 1535px;
-    /* w1535 */
-    height: 329px;
-    /* h329 */
-    position: relative;
-    display: block;
-    /* Move o canvas para a coordenada x78 inicial */
-    left: 78px;
-  }
-
+  /* 4. O "artboard" gigante que rola */
+.timeline-canvas-mobile {
+  width: 1535px;
+  height: 329px;
+  position: relative;
+  display: block;
+  left: 105px; /* <-- Garanta que está 78px */
+}
   /* 5. Estilos base para os elementos */
   .timeline-text-top-mobile,
   .timeline-icon-mobile,
@@ -3605,14 +3605,14 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
   }
 
   /* --- ETAPA 3 (Padrão) --- */
-  .timeline-text-top-mobile.step-3 {
-    width: 178px;
-    height: 72px;
-    left: 536px;
-    top: 83px;
-    font-size: 16px;
-    font-weight: 400;
-  }
+.timeline-text-top-mobile.step-3 {
+  width: 178px;
+  height: 72px;
+  left: 533px; /* <-- ALTERADO DE 536px */
+  top: 83px;
+  font-size: 16px;
+  font-weight: 400;
+}
 
   .timeline-icon-mobile.step-3 {
     width: 87.56px;
@@ -3622,14 +3622,14 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
   }
 
   /* --- ETAPA 4 (Padrão) --- */
-  .timeline-text-top-mobile.step-4 {
-    width: 178px;
-    height: 72px;
-    left: 792px;
-    top: 83px;
-    font-size: 16px;
-    font-weight: 400;
-  }
+.timeline-text-top-mobile.step-4 {
+  width: 178px;
+  height: 72px;
+  left: 786px; /* <-- ALTERADO DE 792px */
+  top: 83px;
+  font-size: 16px;
+  font-weight: 400;
+}
 
   .timeline-icon-mobile.step-4 {
     width: 87.56px;
@@ -3638,15 +3638,15 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
     top: 181px;
   }
 
-  /* --- ETAPA 5 (Padrão) --- */
-  .timeline-text-top-mobile.step-5 {
-    width: 178px;
-    height: 72px;
-    left: 1048px;
-    top: 83px;
-    font-size: 16px;
-    font-weight: 400;
-  }
+ /* --- ETAPA 5 (Padrão) --- */
+.timeline-text-top-mobile.step-5 {
+  width: 178px;
+  height: 72px;
+  left: 1039px; /* <-- ALTERADO DE 1048px */
+  top: 83px;
+  font-size: 16px;
+  font-weight: 400;
+}
 
   .timeline-icon-mobile.step-5 {
     width: 87.56px;
@@ -3656,14 +3656,14 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
   }
 
   /* --- ETAPA 6 (Final) --- */
-  .timeline-text-top-mobile.step-6 {
-    width: 178px;
-    height: 72px;
-    left: 1304px;
-    top: 107px;
-    font-size: 16px;
-    font-weight: 400;
-  }
+.timeline-text-top-mobile.step-6 {
+  width: 178px;
+  height: 72px;
+  left: 1292px; /* <-- ALTERADO DE 1304px */
+  top: 107px;
+  font-size: 16px;
+  font-weight: 400;
+}
 
   .timeline-icon-mobile.step-6 {
     width: 87.56px;
@@ -3742,7 +3742,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 24px 0 24px;
+    padding: 40px 24px 0 24px;
     padding-bottom: 280px;
     /* <-- SEU PADDING */
     box-sizing: border-box;
@@ -3821,11 +3821,10 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
     width: 184px;
     height: 25.06px;
     left: 240px;
-    top: 70px;
+    top: 80px;
     /* (y:90) - (y:49 + h:66) = ~ -25px.
    Isso significa que ele sobrepõe.
    Vamos usar margin-top negativo e alinhar à direita */
-    margin-top: -20px;
     margin-bottom: 30px;
     align-self: flex-end;
     /* Alinha à direita */
