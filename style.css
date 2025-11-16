@@ -3447,7 +3447,7 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         height: 394px;
         top: 274px;
         z-index: 3;
-        content: url('assets/images/how-it-works/ctv-illustration-mobile.jpg');
+        content: url('assets/images/how-it-works/ctv-illustration-mobile.svg');
         transform: none !important;
         opacity: 1 !important;
     }
