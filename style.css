@@ -3052,7 +3052,6 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
         display: block;
         position: absolute; /* MODIFICADO */
         width: 100%;
-        max-width: 375px; /* NOVO: Para alinhar com o "artboard" */
         margin-top: 0; /* MODIFICADO: Removemos a margem */
         z-index: 3;
         object-fit: cover;
