@@ -1208,6 +1208,7 @@ p {
   font-size: var(--font-size-xxl);
   line-height: 1.15;
   margin-bottom: 2.5vw;
+  text-wrap: balance;
 }
 
 .ctv-intro-description {
@@ -1420,6 +1421,7 @@ p {
   font-size: 3.75vw;
   line-height: 1.2;
   color: var(--color-primary-dark-blue);
+  text-wrap: balance;
 }
 
 .learn-decorative-lines {
@@ -1571,10 +1573,10 @@ p {
   position: absolute;
   top: 56.18vw;
   left: 5.556vw;
-  width: 88.889vw;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  text-wrap: balance;
 }
 
 .master-intro-headline {
