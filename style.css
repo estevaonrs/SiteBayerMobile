@@ -2716,8 +2716,12 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
   }
 
   #step-by-step-section .cta-button span {
-    font-size: 14px;
-  }
+        font-size: 11px; /* Reduz a fonte para caber */
+        letter-spacing: -0.5px; /* Junta levemente as letras */
+        white-space: nowrap; /* Garante que fique em uma linha só */
+        width: 100%;
+        text-align: center;
+    }
 
   /* =======================================
    10.6. How To Join (Desktop) - ESCONDIDO

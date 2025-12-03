@@ -324,6 +324,17 @@
 
 <script>
 
+    // --- COLE O CÓDIGO NOVO AQUI ---
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.location.hash) {
+            document.documentElement.style.scrollBehavior = 'auto';
+            setTimeout(() => {
+                document.documentElement.style.scrollBehavior = 'smooth';
+            }, 100);
+        }
+    });
+    // -------------------------------
+
     // --- SCRIPT DO PRELOADER ---
     const preloader = document.getElementById('preloader');
     
