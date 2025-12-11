@@ -2910,41 +2910,37 @@ section:not(#avoid-scams-section) a:hover img[src*="button-cta.webp"] {
   }
 
   #svg-acesse {
-    width: 153px;
-    height: 20px;
     left: 68px;
-    top: 48px;
+    top: 20px;
     z-index: 2;
   }
 
   #svg-n2 {
     width: 79.45px;
     height: 114.21px;
-    left: 256.97px;
+    left: 360px;
     top: 0.62px;
     z-index: 3;
   }
 
   #svg-preencha {
     height: 65.34px;
-    left: 355.04px;
-    top: 25px;
+    left: 460px;
+    top: 20px;
     z-index: 2;
   }
 
   #svg-n3 {
     width: 78.83px;
     height: 116.07px;
-    left: 633.74px;
+    left: 1230px;
     top: 0px;
     z-index: 3;
   }
 
   #svg-ctv {
-    width: 229.66px;
-    height: 63px;
-    left: 731.19px;
-    top: 27px;
+    left: 1330px;
+    top: 20px;
     z-index: 2;
   }
 
