@@ -210,27 +210,59 @@
                         <div class="step-blue-bar"></div>
 
                         <div class="step-content step-content-1">
-                            <p>Acesse o Site ou App</p>
+                            <div class="content-flex-row">
+                                <div class="col-title-small">
+                                    <p>Acesse o Site ou App e preencha seus dados:</p>
+                                </div>
+                                <div class="col-list">
+                                    <ul>
+                                        <li>• CPF</li>
+                                        <li>• E-mail</li>
+                                        <li>• Nome completo</li>
+                                        <li>• Número de celular (pessoal)</li>
+                                        <li>• Local de trabalho (CNPJ)</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="step-content step-content-2">
-                            <h3>Preencha seus dados:</h3>
-                            <div class="list-columns">
-                                <ul>
-                                    <li>• Nome completo</li>
-                                    <li>• CPF</li>
-                                    <li>• Data nascimento</li>
-                                    <li>• CNPJ (Cooperativa/Distribuidora)</li>
-                                </ul>
+                            <div class="content-flex-row">
+                                <div class="col-text">
+                                    <strong>CTV</strong>
+                                    <p>Agora é só aguardar. Assim que o Master validar o seu pré-cadastro, você receberá um e-mail de finalização cadastral.</p>
+                                </div>
+                                <div class="col-text">
+                                    <strong>Preencha os dados e clique em continuar:</strong>
+                                    <ul>
+                                        <li>• Data de nascimento</li>
+                                        <li>• Nome da mãe</li>
+                                        <li>• Primeira senha</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-content step-content-2-b">
+                            <div class="single-column-centered">
+                                <strong>MASTER</strong>
+                                <p>Agora você precisará abrir um chamado com o Converse Bayer, informar que é um Master e seguir seu cadastramento por lá.</p>
                             </div>
                         </div>
 
                         <div class="step-content step-content-3">
-                            <div class="text-column">
-                                <strong>CTV</strong> agora é só aguardar. Assim que o Master validar seu cadastro você será informado.
-                            </div>
-                            <div class="text-column">
-                                <strong>MASTER</strong> agora você precisa abrir um chamado no Converse Bayer e informar que é um Master.
+                            <div class="content-flex-row">
+                                <div class="col-text">
+                                    <strong>CTV</strong>
+                                    <p>
+                                        Autentique seu celular e valide seu e-mail.
+                                        <span class="small-break"></span> Pronto, agora você tem acesso à plataforma do Parceria Premiada!
+                                    </p>
+                                </div>
+                                <div class="col-text">
+                                    <strong>MASTER</strong>
+                                    <p>Pronto, agora você tem acesso à plataforma do Parceria Premiada!</p>
+                                </div>
                             </div>
                         </div>
 
@@ -466,28 +498,44 @@
         }
 
         // --- LÓGICA DA ANIMAÇÃO DE SCROLL DA SEÇÃO "ETAPAS" ---
-        const registrationSection = document.querySelector('#registration-steps-section');
-        const registrationCanvas = document.querySelector('.registration-canvas');
-        if (registrationSection && registrationCanvas) {
-            const handleScrollAnimation = () => {
-                const rect = registrationSection.getBoundingClientRect();
-                const scrollTopInSection = -rect.top;
-                const scrollableHeight = registrationSection.offsetHeight - window.innerHeight;
-                if (scrollableHeight <= 0) return;
-                const progress = Math.min(1, Math.max(0, scrollTopInSection / scrollableHeight));
-                registrationCanvas.classList.remove('state-2', 'state-3', 'state-4', 'state-5');
-                if (progress > 0.1 && progress <= 0.3) {
-                    registrationCanvas.classList.add('state-2');
-                } else if (progress > 0.3 && progress <= 0.55) {
-                    registrationCanvas.classList.add('state-3');
-                } else if (progress > 0.55 && progress <= 0.75) {
-                    registrationCanvas.classList.add('state-4');
-                } else if (progress > 0.75) {
-                    registrationCanvas.classList.add('state-5');
-                }
-            };
-            window.addEventListener('scroll', handleScrollAnimation);
+const registrationSection = document.querySelector('#registration-steps-section');
+const registrationCanvas = document.querySelector('.registration-canvas');
+
+if (registrationSection && registrationCanvas) {
+    const handleScrollAnimation = () => {
+        const rect = registrationSection.getBoundingClientRect();
+        const scrollTopInSection = -rect.top;
+        const scrollableHeight = registrationSection.offsetHeight - window.innerHeight;
+        
+        if (scrollableHeight <= 0) return;
+        
+        // Progresso de 0 a 1
+        const progress = Math.min(1, Math.max(0, scrollTopInSection / scrollableHeight));
+        
+        // Remove todas as classes de estado para garantir limpeza
+        registrationCanvas.classList.remove('state-2', 'state-3', 'state-3-b', 'state-4', 'state-5');
+        
+        // Lógica de Estados (ajustada para incluir o passo extra no número 2)
+        if (progress > 0.05 && progress <= 0.25) {
+            // Passo 1: Acesse o site
+            registrationCanvas.classList.add('state-2');
+        } else if (progress > 0.25 && progress <= 0.45) {
+            // Passo 2 (Parte A): CTV + Preencha dados
+            registrationCanvas.classList.add('state-3');
+        } else if (progress > 0.45 && progress <= 0.65) {
+            // Passo 2 (Parte B): Master (Novo Scroll)
+            registrationCanvas.classList.add('state-3-b');
+        } else if (progress > 0.65 && progress <= 0.85) {
+            // Passo 3: Validação Final
+            registrationCanvas.classList.add('state-4');
+        } else if (progress > 0.85) {
+            // Final: Atenção
+            registrationCanvas.classList.add('state-5');
         }
+    };
+    
+    window.addEventListener('scroll', handleScrollAnimation);
+}
 
 
         // --- LÓGICA PARA ANIMAÇÃO DE SURGIMENTO DAS SEÇÕES ---

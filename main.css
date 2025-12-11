@@ -796,243 +796,255 @@ p {
 }
 
 #registration-steps-section {
-  max-width: 100%;
-  margin: 0 auto;
-  height: 500vh;
-  background-color: var(--color-background-light-blue);
-  position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 600vh; /* Aumentei para acomodar o passo extra suavemente */
+    background-color: var(--color-background-light-blue);
+    position: relative;
 }
 
 .registration-scroll-container {
-  height: 100%;
-  position: relative
+    height: 100%;
+    position: relative;
 }
 
 .registration-sticky-container {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  max-height: 40.972vw;
-  width: 100%;
-  overflow: hidden
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    max-height: 40.972vw; /* Altura do canvas desktop */
+    width: 100%;
+    overflow: hidden;
 }
 
 .registration-canvas {
-  position: relative;
-  width: 100%;
-  height: 100%
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
+/* --- Elementos Base --- */
 .step-blue-bar {
-  position: absolute;
-  background-color: var(--color-accent-blue);
-  top: 37.12%;
-  left: 31.98%;
-  width: 38.23%;
-  height: 25.76%;
-  transition: all .5s ease-in-out;
-  z-index: 1
+    position: absolute;
+    background-color: var(--color-accent-blue);
+    top: 37.12%;
+    left: 31.98%;
+    width: 38.23%;
+    height: 25.76%;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Transição mais suave */
+    z-index: 1;
 }
 
 .step-number {
-  position: absolute;
-  transition: all .5s ease-in-out;
-  z-index: 2
+    position: absolute;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 2;
 }
 
-.step-number-1 {
-  width: 5.49%;
-  top: 34.58%;
-  left: 27.43%
-}
-
-.step-number-2 {
-  width: 8.89%;
-  top: 34.41%;
-  left: 43.89%
-}
-
-.step-number-3 {
-  width: 8.82%;
-  top: 34.07%;
-  left: 63.75%
-}
+.step-number-1 { width: 5.49%; top: 34.58%; left: 27.43%; }
+.step-number-2 { width: 8.89%; top: 34.41%; left: 43.89%; }
+.step-number-3 { width: 8.82%; top: 34.07%; left: 63.75%; }
 
 .step-content {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  color: var(--color-white);
-  /* ATUALIZADO: Remove a transição de visibilidade e o delay */
-  transition: opacity 0.3s ease-out;
-  z-index: 3;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    color: var(--color-white);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
+/* --- Utilitários de Layout Interno --- */
+.content-flex-row {
+    display: flex;
+    gap: 2vw;
+    position: absolute;
+    align-items: flex-start; /* Alinhamento padrão */
+}
+
+/* Nova classe para o espaçamento controlado no Passo 3 */
+.small-break {
+    display: block;
+    margin-top: 0.5vw; /* Espaço bem menor que um <br><br> */
+}
+
+.content-flex-row ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content-flex-row strong {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.5vw;
+    font-size: 1.1vw;
+}
+
+/* --- ESTADOS DA ANIMAÇÃO --- */
+
+/* ESTADO 2: Passo 1 (Acesse o site...) */
 .registration-canvas.state-2 .step-blue-bar {
-  left: 9.76%;
-  top: 37.29%;
-  width: 60.47%
+    left: 9.76%; top: 37.29%; width: 60.47%;
 }
-
 .registration-canvas.state-2 .step-number-1 {
-  left: 5.56%;
-  top: 34.75%
+    left: 5.56%; top: 34.75%;
 }
-
 .registration-canvas.state-2 .step-content-1 {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition-delay: .3s;
-  top: 47.46%;
-  left: 14.24%;
-  width: 16.32%;
-  font-size: 1.667vw;
-  font-weight: 400
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transition-delay: 0.2s;
 }
 
+/* Layout específico do Passo 1 */
+.step-content-1 .content-flex-row {
+    top: 40%; /* Bem mais para baixo para centralizar na barra */
+    left: 13%; 
+    align-items: center; /* Centraliza texto e lista verticalmente um com o outro */
+}
+
+.col-title-small {
+    width: 14vw; /* Aumentei largura para o texto fluir melhor */
+    font-size: 0.972vw; /* AUMENTADO: Mesmo tamanho da lista (era 0.833vw) */
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 80px;
+}
+
+.col-list {
+    margin-left: 1vw;
+    font-size: 0.972vw;
+    line-height: 1.5;
+}
+
+
+/* ESTADO 3: Passo 2-A (CTV + Preencha dados) */
 .registration-canvas.state-3 .step-blue-bar {
-  left: 9.76%;
-  top: 37.29%;
-  width: 60.47%
+    left: 9.76%; top: 37.29%; width: 60.47%; /* Barra mantém tamanho */
 }
-
 .registration-canvas.state-3 .step-number-1 {
-  left: 5.56%;
-  top: 34.75%
+    left: 5.56%; top: 34.75%;
 }
-
 .registration-canvas.state-3 .step-number-2 {
-  left: 13.82%
+    left: 13.82%; /* Número 2 entra na posição */
 }
-
 .registration-canvas.state-3 .step-content-2 {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition-delay: .3s;
-  top: 38%;
-  left: 25.9%;
-  width: 26.32%
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transition-delay: 0.2s;
 }
 
-.step-content-2 h3 {
-  font-size: 1.667vw;
-  margin-bottom: .694vw;
-  font-weight: 700
+/* Layout Passo 2-A */
+.step-content-2 .content-flex-row {
+    top: 40%; /* Centralizado verticalmente */
+    left: 24%; /* Começa logo após o Numero 2 */
+    width: 42%; /* REDUZIDO DRASTICAMENTE: Antes era 65%, agora cabe no espaço */
+    justify-content: flex-start;
+}
+.step-content-2 .col-text {
+    flex: 1;
+    font-size: 1.11vw;
+    line-height: 1.3; /* Levemente apertado para caber mais texto */
 }
 
-.step-content-2 .list-columns ul {
-  list-style: none;
-  padding: 0;
-  font-size: 1.111vw;
-  line-height: 1.6
+
+/* ESTADO 3-B (NOVO): Passo 2-B (MASTER - Ainda no número 2) */
+.registration-canvas.state-3-b .step-blue-bar {
+    left: 9.76%; top: 37.29%; width: 60.47%; /* Barra imóvel */
+}
+.registration-canvas.state-3-b .step-number-1 { left: 5.56%; top: 34.75%; }
+.registration-canvas.state-3-b .step-number-2 { left: 13.82%; } /* Número imóvel */
+
+/* Esconde o conteúdo anterior */
+.registration-canvas.state-3-b .step-content-2 {
+    opacity: 0; visibility: hidden; transform: translateY(-10px);
+}
+/* Mostra o novo conteúdo Master */
+.registration-canvas.state-3-b .step-content-2-b {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transition-delay: 0.2s;
 }
 
+/* Layout Passo 2-B */
+.step-content-2-b .single-column-centered {
+    position: absolute;
+    top: 42%;
+    left: 25%;
+    width: 28%; /* REDUZIDO: Antes 35%, agora não encosta no final da barra */
+    font-size: 1.25vw;
+    line-height: 1.4;
+}
+.step-content-2-b strong {
+    display: block; 
+    font-weight: 700; 
+    margin-bottom: 0.5vw; 
+    font-size: 1.1vw;
+}
+
+/* ESTADO 4: Passo 3 (Validação Final) */
 .registration-canvas.state-4 .step-blue-bar {
-  left: 10.49%;
-  top: 37.12%;
-  width: 85.97%
+    left: 10.49%; top: 37.12%; width: 85.97%; /* Barra cresce */
 }
-
-.registration-canvas.state-4 .step-number-1 {
-  left: 5.56%;
-  top: 34.75%
-}
-
-.registration-canvas.state-4 .step-number-2 {
-  left: 13.82%
-}
-
-.registration-canvas.state-4 .step-number-3 {
-  left: 25.48%
-}
+.registration-canvas.state-4 .step-number-1 { left: 5.56%; top: 34.75%; }
+.registration-canvas.state-4 .step-number-2 { left: 13.82%; }
+.registration-canvas.state-4 .step-number-3 { left: 25.48%; } /* Entra Num 3 */
 
 .registration-canvas.state-4 .step-content-3 {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition-delay: .3s;
-  display: flex;
-  top: 40.8%;
-  left: 36.38%;
-  width: 54%;
-  gap: 2.3%;
-  font-size: 1.25vw;
-  line-height: 1.5
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transition-delay: 0.2s;
 }
 
-.step-content-3 .text-column {
-  flex: 1
+/* Layout Passo 3 */
+/* Layout Passo 3 (Validação Final) */
+.step-content-3 .content-flex-row {
+    top: 42%;
+    left: 40%; /* MAIS PARA A DIREITA: Afastado do Número 3 */
+    width: 48%;
+    gap: 3vw;
+}
+
+.step-content-3 .col-text {
+    flex: 1;
+    font-size: 1.11vw;
+    line-height: 1.4;
 }
 
 .step-content-3 strong {
-  display: block;
-  font-weight: 700;
-  margin-bottom: .347vw
+    display: block; 
+    font-weight: 700; 
+    margin-bottom: 0.5vw;
 }
 
+
+/* ESTADO 5: Passo Final (Atenção) */
 .registration-canvas.state-5 .step-blue-bar {
-  width: 65.604vw;
-  height: 10.556vw;
-  left: 10.486vw;
-  top: 15.208vw
+    width: 65.604vw; height: 10.556vw; left: 10.486vw; top: 15.208vw;
 }
-
-.registration-canvas.state-5 .step-number-1 {
-  left: 5.56%;
-  top: 34.75%
-}
-
-.registration-canvas.state-5 .step-number-2 {
-  width: 8.889vw;
-  left: 13.819vw;
-  top: 14.097vw
-}
-
-.registration-canvas.state-5 .step-number-3 {
-  left: 25.48%
-}
+.registration-canvas.state-5 .step-number-1 { left: 5.56%; top: 34.75%; }
+.registration-canvas.state-5 .step-number-2 { width: 8.889vw; left: 13.819vw; top: 14.097vw; }
+.registration-canvas.state-5 .step-number-3 { left: 25.48%; }
 
 .registration-canvas.state-5 .step-content-4 {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition-delay: .3s;
-  position: absolute;
-  width: 31.673vw;
-  height: 2.847vw;
-  left: 41.667vw;
-  top: 19.167vw;
-  display: flex;
-  align-items: center;
-  gap: 1.458vw;
-  z-index: 5
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transition-delay: 0.3s;
+    position: absolute;
+    width: 31.673vw; height: 2.847vw;
+    left: 41.667vw; top: 19.167vw;
+    display: flex; align-items: center; gap: 1.458vw;
+    z-index: 5;
 }
-
+/* Itens decorativos do final */
 .registration-canvas.state-5 .step-white-bar {
-  width: 1.651vw;
-  height: 8.888vw;
-  left: 37.083vw;
-  top: 16.085vw;
-  z-index: 4
+    width: 1.651vw; height: 8.888vw; left: 37.083vw; top: 16.085vw; z-index: 4;
 }
-
 .registration-canvas.state-5 .step-attention-icon {
-  width: 2.908vw;
-  height: 2.844vw;
-  flex-shrink: 0
+    width: 2.908vw; height: 2.844vw; flex-shrink: 0;
 }
-
 .registration-canvas.state-5 .step-content-4 p {
-  width: 27.292vw;
-  font-size: 1.25vw;
-  font-style: italic;
-  font-weight: 700;
-  line-height: 1.3;
-  color: var(--color-white);
-  margin: 0
+    width: 27.292vw; font-size: 1.25vw; font-style: italic; font-weight: 700; line-height: 1.3; margin: 0;
 }
 
 #already-registered-section {
